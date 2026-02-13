@@ -149,7 +149,7 @@ export function Header() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center group shrink-0 font-semibold text-lg md:text-xl text-foreground hover:text-accent transition-colors"
+              className="logo-text flex items-center group shrink-0 text-xl md:text-2xl text-foreground hover:text-accent transition-colors tracking-tight"
             >
               Buymongolia.vip
             </Link>

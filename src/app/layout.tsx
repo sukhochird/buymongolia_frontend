@@ -1,6 +1,14 @@
 import type { Metadata } from 'next';
+import { Outfit } from 'next/font/google';
 import { ClientLayout } from '@/app/components/ClientLayout';
 import '@/app/globals.css';
+
+const fontLogo = Outfit({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  variable: '--font-logo',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Smart Buy Mongolia - Дижитал бүтээгдэхүүн',
@@ -14,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="mn">
-      <body>
+      <body className={fontLogo.variable}>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

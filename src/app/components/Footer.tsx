@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Brand + tagline */}
           <div className="space-y-5">
-            <Link href="/" className="inline-block font-semibold text-xl text-white hover:opacity-90 transition-opacity">
+            <Link href="/" className="logo-text inline-block text-xl md:text-2xl text-white hover:opacity-90 transition-opacity tracking-tight">
               Buymongolia.vip
             </Link>
             <p className="text-white/75 text-sm leading-relaxed max-w-sm">

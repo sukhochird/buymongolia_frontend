@@ -4,3 +4,10 @@
 @import 'tailwindcss' source(none);
 @source '../**/*.{js,ts,jsx,tsx}';
 @import 'tw-animate-css';
+
+/* Logo text — логонд зориулсан font */
+.logo-text {
+  font-family: var(--font-logo), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
