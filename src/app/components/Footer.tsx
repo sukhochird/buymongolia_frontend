@@ -1,5 +1,4 @@
 import { Facebook, Instagram, MapPin, Phone, Youtube } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export function Footer() {
@@ -9,14 +8,8 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Brand + tagline */}
           <div className="space-y-5">
-            <Link href="/" className="inline-block">
-              <Image
-                src="/logo.png"
-                alt="Smart Buy Mongolia"
-                width={140}
-                height={44}
-                className="h-11 w-auto object-contain brightness-0 invert opacity-95"
-              />
+            <Link href="/" className="inline-block font-semibold text-xl text-white hover:opacity-90 transition-opacity">
+              Buymongolia.vip
             </Link>
             <p className="text-white/75 text-sm leading-relaxed max-w-sm">
               Дижитал бүтээгдэхүүн, үйлчилгээг Монголдоо хамгийн хямд, хамгийн найдвартай сонголт болгохын төлөө бид зогсолтгүй хөдөлмөрлөж байна. 🚀

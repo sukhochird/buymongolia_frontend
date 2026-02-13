@@ -7,7 +7,6 @@ import { IntroSection } from '@/app/components/IntroSection';
 import { FlowerTypesNav } from '@/app/components/FlowerTypesNav';
 import { FeaturedProductsSection } from '@/app/components/FeaturedProductsSection';
 import { RecentProductsSection } from '@/app/components/RecentProductsSection';
-import { ValentinePreOrder } from '@/app/components/ValentinePreOrder';
 import { FAQSection } from '@/app/components/FAQSection';
 
 export default function HomePage() {
@@ -18,9 +17,6 @@ export default function HomePage() {
       <HeroSection />
       <OccasionsGrid />
       <IntroSection />
-
-      {/* Valentine Pre-Order Section */}
-      <ValentinePreOrder />
 
       {/* Filter / Flower Types Nav — онцлох бүтээгдэхүүнийг ангилалаар шүүнэ */}
       <FlowerTypesNav activeType={featuredCategory} onActiveTypeChange={setFeaturedCategory} />

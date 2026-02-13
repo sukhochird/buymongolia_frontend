@@ -19,7 +19,6 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { useCart } from "@/app/context/CartContext";
 import { useFavorites } from "@/app/context/FavoritesContext";
-import Image from "next/image";
 import { getHeaderMenu, type ApiHeaderMenuItem } from '@/app/lib/api';
 
 export function Header() {
@@ -150,28 +149,9 @@ export function Header() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center group shrink-0"
+              className="flex items-center group shrink-0 font-semibold text-lg md:text-xl text-foreground hover:text-accent transition-colors"
             >
-              <div className="relative h-8 md:h-12 w-auto overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                <Image
-                  src="/logo.png"
-                  alt="Smart Buy Mongolia"
-                  width={120}
-                  height={48}
-                  className="h-full w-auto object-contain"
-                />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent skew-x-[-20deg]"
-                  initial={{ x: "-150%" }}
-                  animate={{ x: "150%" }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    repeatDelay: 3,
-                    ease: "easeInOut",
-                  }}
-                />
-              </div>
+              Buymongolia.vip
             </Link>
 
             {/* Navigation - Desktop */}
