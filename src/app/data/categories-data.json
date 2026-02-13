@@ -1,0 +1,159 @@
+{
+  "categories": [
+    {
+      "id": "flowers",
+      "name": "Цэцэг",
+      "slug": "flowers",
+      "subcategories": [
+        {
+          "id": "roses",
+          "name": "Сарнай",
+          "slug": "roses",
+          "subcategories": [
+            { "id": "red-roses", "name": "Улаан сарнай", "slug": "red-roses" },
+            { "id": "white-roses", "name": "Цагаан сарнай", "slug": "white-roses" },
+            { "id": "pink-roses", "name": "Ягаан сарнай", "slug": "pink-roses" },
+            { "id": "mixed-roses", "name": "Холимог сарнай", "slug": "mixed-roses" }
+          ]
+        },
+        {
+          "id": "tulips",
+          "name": "Алтанзул",
+          "slug": "tulips",
+          "subcategories": [
+            { "id": "yellow-tulips", "name": "Шар алтанзул", "slug": "yellow-tulips" },
+            { "id": "purple-tulips", "name": "Нил ягаан алтанзул", "slug": "purple-tulips" }
+          ]
+        },
+        {
+          "id": "lilies",
+          "name": "Сараана",
+          "slug": "lilies",
+          "subcategories": []
+        },
+        {
+          "id": "peonies",
+          "name": "Цээнэ",
+          "slug": "peonies",
+          "subcategories": []
+        },
+        {
+          "id": "orchids",
+          "name": "Цахирмаа",
+          "slug": "orchids",
+          "subcategories": []
+        }
+      ]
+    },
+    {
+      "id": "occasions",
+      "name": "Баяр ёслол",
+      "slug": "occasions",
+      "subcategories": [
+        {
+          "id": "birthday",
+          "name": "Төрсөн өдөр",
+          "slug": "birthday",
+          "image": "https://images.unsplash.com/photo-1734119172246-fa2c1a0f1e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGJpcnRoZGF5JTIwZmxvd2VycyUyMGJvdXF1ZXR8ZW58MXx8fHwxNzY5NzM3MTU0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          "subcategories": []
+        },
+        {
+          "id": "anniversary",
+          "name": "Ой, тэмдэглэлт өдөр",
+          "slug": "anniversary",
+          "image": "https://images.unsplash.com/photo-1623940508852-494dffda9e21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwYW5uaXZlcnNhcnklMjBmbG93ZXJzJTIwcm9tYW50aWN8ZW58MXx8fHwxNzY5NzM3MTU0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          "subcategories": []
+        },
+        {
+          "id": "valentine",
+          "name": "Гэгээн хайрын өдөр",
+          "slug": "valentine",
+          "image": "https://images.unsplash.com/photo-1644745547471-6452aa04fb38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2YWxlbnRpbmVzJTIwZGF5JTIwcmVkJTIwcm9zZXMlMjBoZWFydHxlbnwxfHx8fDE3Njk3MzcxNTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          "subcategories": []
+        },
+        {
+          "id": "womens-day",
+          "name": "Эмэгтэйчүүдийн баяр",
+          "slug": "womens-day",
+          "image": "https://images.unsplash.com/photo-1646560065522-a7207d7df038?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21lbnMlMjBkYXklMjBtYXJjaCUyMDglMjBmbG93ZXJzJTIwdHVsaXBzfGVufDF8fHx8MTc2OTczNzE1NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          "subcategories": []
+        },
+        {
+          "id": "wedding",
+          "name": "Хурим",
+          "slug": "wedding",
+          "image": "https://images.unsplash.com/photo-1768777273037-aa1cbd2afa08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwZmxvd2VycyUyMGJvdXF1ZXQlMjBlbGVnYW50fGVufDF8fHx8MTc2OTczNzI5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          "subcategories": []
+        },
+        {
+          "id": "new-baby",
+          "name": "Шинэ хүүхэд",
+          "slug": "new-baby",
+          "image": "https://images.unsplash.com/photo-1579900754584-0381d0a8b46d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZXclMjBiYWJ5JTIwZmxvd2VycyUyMHBhc3RlbCUyMHNvZnR8ZW58MXx8fHwxNzY5NzM3Mjk1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          "subcategories": []
+        },
+        {
+          "id": "graduation",
+          "name": "Төгсөлт",
+          "slug": "graduation",
+          "image": "https://images.unsplash.com/photo-1762440584151-f265d4a26d5b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmFkdWF0aW9uJTIwZmxvd2VycyUyMGJvdXF1ZXQlMjBjZWxlYnJhdGlvbnxlbnwxfHx8fDE3Njk2NTkzNTF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          "subcategories": []
+        },
+        {
+          "id": "thank-you",
+          "name": "Талархал",
+          "slug": "thank-you",
+          "image": "https://images.unsplash.com/photo-1767694934233-a277dc685f38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aGFuayUyMHlvdSUyMGZsb3dlcnMlMjBncmF0aXR1ZGUlMjBnaWZ0fGVufDF8fHx8MTc2OTczNzI5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          "subcategories": []
+        }
+      ]
+    },
+    {
+      "id": "gifts",
+      "name": "Бэлэг дурсгал",
+      "slug": "gifts",
+      "subcategories": [
+        {
+          "id": "chocolates",
+          "name": "Шоколад",
+          "slug": "chocolates",
+          "subcategories": []
+        },
+        {
+          "id": "toys",
+          "name": "Зөөлөн тоглоом",
+          "slug": "toys",
+          "subcategories": [
+            { "id": "teddy-bears", "name": "Бамбарууш", "slug": "teddy-bears" },
+            { "id": "rabbits", "name": "Туулай", "slug": "rabbits" }
+          ]
+        },
+        {
+          "id": "cards",
+          "name": "Ил захидал",
+          "slug": "cards",
+          "subcategories": []
+        }
+      ]
+    },
+    {
+      "id": "plants",
+      "name": "Тасалгааны цэцэг",
+      "slug": "plants",
+      "subcategories": [
+        {
+          "id": "green-plants",
+          "name": "Ногоон ургамал",
+          "slug": "green-plants",
+          "subcategories": []
+        },
+        {
+          "id": "flowering-plants",
+          "name": "Цэцэглэдэг ургамал",
+          "slug": "flowering-plants",
+          "subcategories": []
+        }
+      ]
+    }
+  ]
+}

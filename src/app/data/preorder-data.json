@@ -1,0 +1,31 @@
+{
+  "products": [
+    {
+      "id": 201,
+      "name": "Улаан Сарнай \"Love Story\" - 101 ширхэг",
+      "price": 250000,
+      "originalPrice": 350000,
+      "image": "https://images.unsplash.com/photo-1669569914209-83916290907c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwxMDElMjByZWQlMjByb3NlcyUyMGdpYW50JTIwYm91cXVldHxlbnwxfHx8fDE3Njk2NjYzODB8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": 202,
+      "name": "Bleeding Heart - Тусгай баглаа",
+      "price": 180000,
+      "originalPrice": 220000,
+      "image": "https://images.unsplash.com/photo-1769523137269-dec2323bdd2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb21hbnRpYyUyMHx1eHVyeSUyMGZsb3dlciUyMGJvdXF1ZXQlMjBkYXJrJTIwbW9vZHl8ZW58MXx8fHwxNzY5NjY2MzgxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": 203,
+      "name": "Цагаан Хайрцагтай Сарнай + Шоколад",
+      "price": 125000,
+      "image": "https://images.unsplash.com/photo-1708174163540-2e761dece1d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aGl0ZSUyMGJvc2VzJTIwaW4lMjByb3VuZCUyMGJveCUyMGdpZnR8ZW58MXx8fHwxNzY5NjY2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": 204,
+      "name": "Gentle Pink - Зөөлөн мэдрэмж",
+      "price": 98000,
+      "originalPrice": 110000,
+      "image": "https://images.unsplash.com/photo-1739918059605-de92fa349796?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0JTIwcGluayUyMHBhc3RlbCUyMHJvc2UlMjBib3VxdWV0fGVufDF8fHx8MTc2OTY2NjM4MHww&ixlib=rb-4.1.0&q=80&w=1080"
+    }
+  ]
+}

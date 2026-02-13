@@ -1,0 +1,42 @@
+{
+  "slides": [
+    {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1701850507617-a441df83bb5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGhvbGRpbmclMjBsYXJnZSUyMHJlZCUyMHJvc2UlMjBib3VxdWV0JTIwZmFzaGlvbnxlbnwxfHx8fDE3Njk1MzMzODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "title": "Эмэгтэй хүн бүр\nцэцэгт дуртай",
+      "subtitle": "Хамгийн нандин мөчөө бидэнтэй хамт",
+      "button": "Дэлгүүрлэх",
+      "theme": "dark"
+    },
+    {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1731045971744-11b8c2b8b3da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmlnaHQlMjBzcHJpbmclMjB0dWxpcHMlMjBib3VxdWV0JTIwdGFibGV8ZW58MXx8fHwxNzY5NTMzMzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "title": "Хаврын өнгө аяс\nШинэ коллекци",
+      "subtitle": "Шинэхэн алтанзул цэцгүүд ирлээ",
+      "button": "Шинэ бараа үзэх",
+      "theme": "light"
+    },
+    {
+      "id": 3,
+      "image": "https://images.unsplash.com/photo-1767510533183-425731f088a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBnaWZ0JTIwYm94JTIwZmxvd2Vyc3UyMGNob2NvbGF0ZXN8ZW58MXx8fHwxNzY5NTMzMzgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "title": "Хайртай хүндээ\nбэлэг бариарай",
+      "subtitle": "Тансаг зэрэглэлийн бэлгийн багцууд",
+      "button": "Бэлэг сонгох",
+      "theme": "dark"
+    }
+  ],
+  "banners": [
+    {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1626027336390-92a36ba4e2ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBkcmllZCUyMGZsb3dlcnMlMjB2YXNlfGVufDF8fHx8MTc2OTUzMzM4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "alt": "Dried Flowers",
+      "link": "/category/dried-flowers"
+    },
+    {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1559225320-7d7e111fd4b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBmbG93ZXIlMjBzaG9wJTIwYmFubmVyJTIwZGFyayUyMGVsZWdhbnR8ZW58MXx8fHwxNzY5NTMzMzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "alt": "Delivery",
+      "link": "/service/delivery"
+    }
+  ]
+}

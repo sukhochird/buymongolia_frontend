@@ -1,0 +1,55 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "23 ШИРХЭГ ХӨХӨВТӨР САРНАЙ \"ӨВЛИЙН НАРНЫ ДУЛААН\"",
+      "price": 11050,
+      "image": "https://images.unsplash.com/photo-1656056970279-0cdd04b60434?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZW9ueSUyMGJvdXF1ZXQlMjBwaW5rfGVufDF8fHx8MTc2OTUzMjg0OXww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": 2,
+      "name": "ИРКУТСК ХОТОД УЛААН САРНАЙН БУКЕТ",
+      "price": 20750,
+      "image": "https://images.unsplash.com/photo-1669869608865-84bb10423f99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZWQlMjByb3NlcyUyMHJvbWFudGljJTIwYm91cXVldHxlbnwxfHx8fDE3Njk1MzI3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "discount": 15
+    },
+    {
+      "id": 3,
+      "name": "ЦАГААН ГОРТЕНЗЫН 25 ШИРХЭГ БУКЕТ",
+      "price": 2750,
+      "image": "https://images.unsplash.com/photo-1629379555555-79c361b3736b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoeWRyYW5nZWElMjBibHVlJTIwZmxvd2Vyc3xlbnwxfHx8fDE3Njk0OTY4ODd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": 4,
+      "name": "АЛТАН ӨНГӨТӨЙ ХРИЗАНТЕ��ИЙН БУКЕТ",
+      "price": 5800,
+      "image": "https://images.unsplash.com/photo-1701140731153-5f7ab1a0b198?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5ZWxsb3clMjBjaHJ5c2FudGhlbXVtJTIwYm91cXVldHxlbnwxfHx8fDE3Njk1MzI4NDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "isPreOrder": true
+    },
+    {
+      "id": 5,
+      "name": "ЯМ ЯГААН АЛТАНЗУЛ ХАВДРЫН БУКЕТ",
+      "price": 135650,
+      "image": "https://images.unsplash.com/photo-1712688922191-b83ecaa59b88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwdXJwbGUlMjB0dWxpcHMlMjBzcHJpbmd8ZW58MXx8fHwxNzY5NTMyODUwfDA&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": 6,
+      "name": "ЦАГААН САРАНЦАЦАГИЙН БУКЕТ",
+      "price": 8900,
+      "image": "https://images.unsplash.com/photo-1687946271298-caa66056eef1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aGl0ZSUyMGxpbHklMjBlbGVnYW50fGVufDF8fHx8MTc2OTQ4OTI1MXww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    {
+      "id": 7,
+      "name": "ӨНГӨ ӨНГИЙН ЦЭЦГИЙН БУКЕТ",
+      "price": 12500,
+      "image": "https://images.unsplash.com/photo-1679678109868-cb5bd66d61dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaXhlZCUyMGZsb3dlciUyMGJvdXF1ZXQlMjBjb2xvcmZ1bHxlbnwxfHx8fDE3Njk0ODY1MjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "discount": 10
+    },
+    {
+      "id": 8,
+      "name": "ХӨХӨВТӨР САРНАЙН ЛЮКС БУКЕТ",
+      "price": 18900,
+      "image": "https://images.unsplash.com/photo-1765399301689-404d702a9b10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaW5rJTIwcm9zZXMlMjBib3VxdWV0JTIwbHV4dXJ5fGVufDF8fHx8MTc2OTUzMjc0NXww&ixlib=rb-4.1.0&q=80&w=1080"
+    }
+  ]
+}
