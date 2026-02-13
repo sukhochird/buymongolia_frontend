@@ -96,7 +96,7 @@ export function Header() {
         <div className="max-w-[1440px] mx-auto px-4 md:px-8 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <span className="opacity-80">
-              Улаанбаатар хотод хүргэлттэй цэцэг
+              Дижитал бүтээгдэхүүн, үйлчилгээ — хямд, найдвартай
             </span>
           </div>
           <div className="hidden md:flex items-center gap-6">
@@ -155,7 +155,7 @@ export function Header() {
               <div className="relative h-8 md:h-12 w-auto overflow-hidden group-hover:scale-105 transition-transform duration-300">
                 <Image
                   src="/logo.png"
-                  alt="Elite Flower"
+                  alt="Smart Buy Mongolia"
                   width={120}
                   height={48}
                   className="h-full w-auto object-contain"

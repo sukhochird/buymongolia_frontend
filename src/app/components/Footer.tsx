@@ -12,14 +12,14 @@ export function Footer() {
             <Link href="/" className="inline-block">
               <Image
                 src="/logo.png"
-                alt="Elite Flower"
+                alt="Smart Buy Mongolia"
                 width={140}
                 height={44}
                 className="h-11 w-auto object-contain brightness-0 invert opacity-95"
               />
             </Link>
             <p className="text-white/75 text-sm leading-relaxed max-w-sm">
-              Таны сэтгэлийн үгсийг цэцгээр илэрхийлнэ. Хамгийн тансаг, шинэлэг цэцгийн баглааг бид бэлтгэнэ.
+              Дижитал бүтээгдэхүүн, үйлчилгээг Монголдоо хамгийн хямд, хамгийн найдвартай сонголт болгохын төлөө бид зогсолтгүй хөдөлмөрлөж байна. 🚀
             </p>
             <div className="flex gap-3 pt-1">
               <a
@@ -60,12 +60,12 @@ export function Footer() {
                   <p>
                     <span className="font-medium text-white">Салбар 1:</span>
                     <br />
-                    <span className="text-white/80">10-р хорооллын туслах зам дагуу Elite flower цэцэгсийн дэлгүүр</span>
+                    <span className="text-white/80">10-р хорооллын туслах зам дагуу Smart Buy Mongolia</span>
                   </p>
                   <p>
                     <span className="font-medium text-white">Салбар 2:</span>
                     <br />
-                    <span className="text-white/80">Grand Plaza Office, 1-р давхар Elite Premium Flower Shop</span>
+                    <span className="text-white/80">Grand Plaza Office, 1-р давхар Smart Buy Mongolia</span>
                   </p>
                 </div>
               </li>
@@ -87,7 +87,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-14 pt-8 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="text-sm text-white/60 order-2 sm:order-1">
-            © {new Date().getFullYear()} Elite Flower. Бүх эрх хуулиар хамгаалагдсан.
+            © {new Date().getFullYear()} Smart Buy Mongolia. Бүх эрх хуулиар хамгаалагдсан.
           </p>
           <div className="flex items-center gap-3 order-1 sm:order-2">
             <span className="text-xs text-white/50 uppercase tracking-wider">Төлбөр:</span>

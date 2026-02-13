@@ -216,11 +216,11 @@ export default function ProductDetailPage() {
                             <div className="space-y-3">
                                 <div>
                                     <span className="text-sm font-semibold text-gray-900 block mb-1">Салбар 1:</span>
-                                    <p className="text-gray-600 text-sm">10-р хорооллын туслах зам дагуу Elite flower цэцэгсийн дэлгүүр</p>
+                                    <p className="text-gray-600 text-sm">10-р хорооллын туслах зам дагуу Smart Buy Mongolia</p>
                                 </div>
                                 <div>
                                     <span className="text-sm font-semibold text-gray-900 block mb-1">Салбар 2:</span>
-                                    <p className="text-gray-600 text-sm">🏢Grand Plaza Office, 1-р давхар Elite Premium Flower Shop</p>
+                                    <p className="text-gray-600 text-sm">🏢Grand Plaza Office, 1-р давхар Smart Buy Mongolia</p>
                                 </div>
                             </div>
                         </div>

@@ -58,7 +58,7 @@ export default function ContactPage() {
                         <div className="flex items-start gap-3">
                             <MapPin className="size-5 text-accent shrink-0 mt-1" />
                             <p className="leading-relaxed">
-                                10-р хорооллын туслах зам дагуу Elite flower цэцэгсийн дэлгүүр
+                                10-р хорооллын туслах зам дагуу Smart Buy Mongolia
                             </p>
                         </div>
                         
@@ -102,7 +102,7 @@ export default function ContactPage() {
                         <div className="flex items-start gap-3">
                             <MapPin className="size-5 text-accent shrink-0 mt-1" />
                             <p className="leading-relaxed">
-                                Grand Plaza Office, 1-р давхар Elite Premium Flower Shop
+                                Grand Plaza Office, 1-р давхар Smart Buy Mongolia
                             </p>
                         </div>
                         
@@ -177,7 +177,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-serif font-bold mb-4">Улаанбаатар хот дахь салбарууд</h2>
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 h-[400px] md:h-[480px] relative bg-gray-100">
                 <iframe
-                    title="Улаанбаатар хот дахь Elite Flower салбарууд"
+                    title="Улаанбаатар хот дахь Smart Buy Mongolia салбарууд"
                     src="https://www.openstreetmap.org/export/embed.html?bbox=106.864%2C47.911%2C106.896%2C47.918&layer=mapnik&marker=47.914473952210926%2C106.86918788997626&marker=47.91420800697665%2C106.89127486356195"
                     className="w-full h-full border-0 block"
                     allowFullScreen
@@ -186,11 +186,11 @@ export default function ContactPage() {
                 />
                 <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2">
                     <div className="bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg max-w-xs">
-                        <p className="font-bold text-sm text-gray-900">Elite Flower</p>
+                        <p className="font-bold text-sm text-gray-900">Smart Buy Mongolia</p>
                         <p className="text-xs text-gray-600">Салбар 1: 10-р хороолол · Салбар 2: Grand Plaza</p>
                     </div>
                     <a
-                        href="https://www.google.com/maps/search/Elite+Flower+Ulaanbaatar"
+                        href="https://www.google.com/maps/search/Smart+Buy+Mongolia+Ulaanbaatar"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm px-4 py-2.5 rounded-xl shadow-lg text-sm font-medium text-gray-800 hover:bg-accent hover:text-white transition-colors"
