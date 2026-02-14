@@ -13,11 +13,9 @@ const POLL_INTERVAL_MS = 3000;
 
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart();
-  const [deliveryMethod, setDeliveryMethod] = useState<'city' | 'countryside'>('city');
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
-  const [deliveryAddress, setDeliveryAddress] = useState('');
   const [step, setStep] = useState<'form' | 'payment'>('form');
   const [orderResult, setOrderResult] = useState<CreateOrderResponse | null>(null);
   const [orderStatus, setOrderStatus] = useState<string | null>(null);
@@ -27,9 +25,8 @@ export default function CheckoutPage() {
   const [promoLoading, setPromoLoading] = useState(false);
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const deliveryFee = deliveryMethod === 'city' ? 10000 : 15000;
   const discountAmount = appliedPromo?.valid && appliedPromo.discount_amount ? appliedPromo.discount_amount : 0;
-  const grandTotal = Math.max(0, totalPrice + deliveryFee - discountAmount);
+  const grandTotal = Math.max(0, totalPrice - discountAmount);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,14 +42,18 @@ export default function CheckoutPage() {
       toast.error('Утасны дугаараа оруулна уу.');
       return;
     }
+    if (!customerEmail.trim()) {
+      toast.error('Код хүлээн авах имэйл хаягаа оруулна уу.');
+      return;
+    }
     setSubmitting(true);
     try {
       const res = await createOrder({
         customer_name: customerName.trim(),
         customer_phone: customerPhone.trim(),
-        customer_email: customerEmail.trim() || undefined,
-        delivery_method: deliveryMethod,
-        delivery_address: deliveryAddress.trim() || undefined,
+        customer_email: customerEmail.trim(),
+        delivery_method: 'city',
+        delivery_address: customerEmail.trim(),
         items: items.map((i) => ({
           id: i.id,
           name: i.name,
@@ -227,56 +228,26 @@ export default function CheckoutPage() {
                     />
                   </div>
                   <div className="space-y-1.5 md:col-span-2">
-                    <label className="text-sm font-medium text-gray-700">И-мэйл хаяг</label>
+                    <label className="text-sm font-medium text-gray-700">Код хүлээн авах имэйл хаяг *</label>
                     <input
                       type="email"
+                      required
                       value={customerEmail}
                       onChange={(e) => setCustomerEmail(e.target.value)}
                       className="w-full px-4 py-2.5 rounded border border-gray-300 focus:outline-none focus:border-black transition-colors"
                       placeholder="name@example.com"
                     />
+                    <p className="text-xs text-gray-500">Төлбөр төлсний дараа лиценз/код энэ имэйл хаяг руу илгээгдэнэ.</p>
                   </div>
                 </div>
               </section>
 
               <section className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                <h2 className="text-lg font-medium mb-4 flex items-center gap-2">
+                <h2 className="text-lg font-medium mb-2 flex items-center gap-2">
                   <span className="flex items-center justify-center size-6 bg-black text-white rounded-full text-xs">2</span>
-                  Хүргэлтийн нөхцөл
+                  Хүргэлт
                 </h2>
-                <div className="space-y-3">
-                  <label className={`flex items-start gap-4 p-4 border rounded-lg cursor-pointer transition-all ${deliveryMethod === 'city' ? 'border-accent bg-accent/5 ring-1 ring-accent' : 'border-gray-200 hover:border-gray-300'}`}>
-                    <input type="radio" name="delivery" className="mt-1" checked={deliveryMethod === 'city'} onChange={() => setDeliveryMethod('city')} />
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-medium">Хүргүүлж авах (УБ хот дотор)</span>
-                        <span className="font-bold text-accent">10,000₮</span>
-                      </div>
-                      <p className="text-sm text-gray-500">Хотын A бүсэд хүргэлт хийгдэнэ.</p>
-                    </div>
-                  </label>
-                  <label className={`flex items-start gap-4 p-4 border rounded-lg cursor-pointer transition-all ${deliveryMethod === 'countryside' ? 'border-accent bg-accent/5 ring-1 ring-accent' : 'border-gray-200 hover:border-gray-300'}`}>
-                    <input type="radio" name="delivery" className="mt-1" checked={deliveryMethod === 'countryside'} onChange={() => setDeliveryMethod('countryside')} />
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-medium">Хөдөө орон нутгийн унаанд тавиулах</span>
-                        <span className="font-bold text-accent">15,000₮</span>
-                      </div>
-                      <p className="text-sm text-gray-500">Унаанд тавьж өгөх үйлчилгээний хөлс.</p>
-                    </div>
-                  </label>
-                </div>
-                <div className="mt-4 space-y-1.5">
-                  <label className="text-sm font-medium text-gray-700">
-                    {deliveryMethod === 'city' ? 'Хүргэлтийн хаяг' : 'Унааны мэдээлэл'}
-                  </label>
-                  <textarea
-                    value={deliveryAddress}
-                    onChange={(e) => setDeliveryAddress(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded border border-gray-300 focus:outline-none focus:border-black transition-colors min-h-[80px]"
-                    placeholder={deliveryMethod === 'city' ? 'Дүүрэг, хороо, байр, орц, тоот...' : 'Зогсоол, утас, машин...'}
-                  />
-                </div>
+                <p className="text-sm text-gray-600">Дижитал бүтээгдэхүүн тул бүх захиалга имэйлээр илгээгдэнэ. Дээрх имэйл хаяг руу лиценз/код очно.</p>
               </section>
             </div>
 
@@ -306,9 +277,9 @@ export default function CheckoutPage() {
                     <span>Барааны үнэ</span>
                     <span>{totalPrice.toLocaleString()}₮</span>
                   </div>
-                  <div className="flex items-center justify-between text-gray-600">
+                  <div className="flex items-center justify-between text-gray-500">
                     <span>Хүргэлт</span>
-                    <span>{deliveryFee.toLocaleString()}₮</span>
+                    <span className="text-sm">Имэйлээр (нэмэлт төлбөргүй)</span>
                   </div>
                   {appliedPromo?.valid && discountAmount > 0 && (
                     <div className="flex items-center justify-between text-green-600">

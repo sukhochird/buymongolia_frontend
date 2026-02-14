@@ -264,7 +264,7 @@ export default function ProductDetailPage() {
               <div className="flex items-center justify-between p-6 border-b border-gray-100 shrink-0">
                 <h3 className="text-xl font-serif font-bold flex items-center gap-2">
                   <Truck className="size-5 text-accent" />
-                  Хүргэлт & Буцаалт
+                  Илгээлт & Буцаалт
                 </h3>
                 <button
                   onClick={() => setIsDeliveryModalOpen(false)}
@@ -277,14 +277,7 @@ export default function ProductDetailPage() {
               <div className="p-6 overflow-y-auto text-gray-600 text-sm space-y-6">
                 <section>
                   <h4 className="font-semibold text-gray-900 mb-2">Хүргэлтийн нөхцөл</h4>
-                  <p className="mb-3">Хүргэлтийн үнэ тариф:</p>
-                  <ul className="list-disc pl-5 space-y-1 mb-3">
-                    <li><span className="font-medium text-gray-800">Хүргүүлж авах:</span> 10,000₮ (Улаанбаатар хот дотор)</li>
-                    <li><span className="font-medium text-gray-800">Хөдөө орон нутгийн унаанд тавиулах:</span> 15,000₮</li>
-                  </ul>
-                  <div className="p-3 bg-amber-50 text-amber-800 rounded-lg border border-amber-100">
-                    Санамж: Хотын A бүсэд хүргэлт 10,000₮ бөгөөд энэ бүсээс гадуурх хүргэлтэнд нэмэлт төлбөр бодогдоно.
-                  </div>
+                  <p className="mb-3">Дижитал бүтээгдэхүүн тул бүх захиалга <strong>имэйлээр</strong> илгээгдэнэ. Төлбөр баталгаажсаны дараа захиалга өгөхдөө таны оруулсан имэйл хаяг руу лиценз/код илгээгдэнэ. Нэмэлт хүргэлтийн төлбөр байхгүй.</p>
                 </section>
                 <section>
                   <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
@@ -292,7 +285,7 @@ export default function ProductDetailPage() {
                     Буцаалтын нөхцөл
                   </h4>
                   <p>
-                    Цэцэг, амьд ургамлын шинж чанараас шалтгаалан буцаалт хийх боломжгүй. Захиалгаа өгөхөөс өмнө бүтээгдэхүүн, хэмжээ, өнгө зэргийг сайтар сонгоно уу. Асуудал гарвал дэлгүүртэй шууд холбогдоно уу.
+                    Дижитал бүтээгдэхүүний буцаалтын нөхцөл бүтээгдэхүүн бүрээс хамаарна. Асуудал гарвал бидэнтэй холбогдоно уу.
                   </p>
                 </section>
               </div>
@@ -315,7 +308,7 @@ export default function ProductDetailPage() {
           <nav className="text-sm text-gray-500 hidden md:block">
             <Link href="/" className="hover:text-black">Нүүр</Link>
             <span className="mx-2">/</span>
-            <Link href="/products" className="hover:text-black">Баглаа</Link>
+            <Link href="/products" className="hover:text-black">Бүтээгдэхүүн</Link>
             <span className="mx-2">/</span>
             <span className="text-black font-medium truncate">{product.name}</span>
           </nav>
@@ -527,7 +520,7 @@ export default function ProductDetailPage() {
                      onClick={() => setIsDeliveryModalOpen(true)}
                      className="flex items-center gap-2 hover:text-accent transition-colors"
                    >
-                     <Truck className="size-4" /> <span>Хүргэлт & Буцаалт</span>
+                     <Truck className="size-4" /> <span>Илгээлт & Буцаалт</span>
                    </button>
                    <div className="h-4 w-px bg-gray-300 hidden sm:block"></div>
                    <button className="flex items-center gap-2 hover:text-accent transition-colors">
@@ -547,11 +540,11 @@ export default function ProductDetailPage() {
                 <div className="space-y-3 text-sm text-gray-600">
                   <div className="flex items-start gap-3">
                     <Clock className="size-4 mt-0.5" />
-                    <span><span className="font-medium text-gray-900">Хүргэлт:</span> 10,000₮ (Хот дотор) / 15,000₮ (Орон нутаг)</span>
+                    <span><span className="font-medium text-gray-900">Илгээлт:</span> Имэйлээр илгээгдэнэ (нэмэлт төлбөргүй). Захиалга өгөхдөө оруулсан имэйл руу код очно.</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <RefreshCw className="size-4 mt-0.5" />
-                     <span><span className="font-medium text-gray-900">Буцаалт:</span> Буцаалт хийх боломжгүй тул сонголтоо зөв хийнэ үү.</span>
+                     <span><span className="font-medium text-gray-900">Буцаалт:</span> Дижитал бүтээгдэхүүний буцаалтын нөхцөл бүтээгдэхүүнээс хамаарна.</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <MapPin className="size-4 mt-0.5" />
@@ -568,10 +561,6 @@ export default function ProductDetailPage() {
                   <div className="grid grid-cols-[120px_1fr] gap-2">
                     <span className="text-gray-500">Ангилал:</span>
                     <span className="font-medium text-gray-900">{product.category || '—'}</span>
-                  </div>
-                  <div className="grid grid-cols-[120px_1fr] gap-2">
-                    <span className="text-gray-500">Цэцгийн төрөл:</span>
-                    <span className="font-medium text-gray-900">{product.details?.type || '—'}</span>
                   </div>
                   <div className="grid grid-cols-[120px_1fr] gap-2">
                     <span className="text-gray-500">Тоо ширхэг:</span>
@@ -606,7 +595,7 @@ export default function ProductDetailPage() {
         {/* Tabs Section */}
         <div className="mt-16 md:mt-24 mb-20">
           <div className="flex items-center gap-8 border-b border-gray-200 mb-8 overflow-x-auto">
-            {['description', 'delivery', 'care'].map((tab) => (
+            {['description', 'delivery'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -617,8 +606,7 @@ export default function ProductDetailPage() {
                 }`}
               >
                 {tab === 'description' && 'Дэлгэрэнгүй'}
-                {tab === 'delivery' && 'Хүргэлтийн нөхцөл'}
-                {tab === 'care' && 'Арчилгаа'}
+                {tab === 'delivery' && 'Илгээлтийн нөхцөл'}
               </button>
             ))}
           </div>
@@ -630,9 +618,8 @@ export default function ProductDetailPage() {
                   className="mb-4 [&_p]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_h2]:font-semibold [&_h2]:mt-4 [&_h3]:font-medium [&_h3]:mt-3 [&_a]:text-accent [&_a]:underline [&_strong]:font-semibold"
                   dangerouslySetInnerHTML={{ __html: product.description || '' }}
                 />
-                {(product.details?.type || product.details?.count || product.details?.packaging || product.details?.height) && (
+                {(product.details?.count || product.details?.packaging || product.details?.height) && (
                   <ul className="list-disc pl-5 space-y-2 mt-4">
-                    {product.details?.type && <li>Цэцгийн төрөл: {product.details.type}</li>}
                     {product.details?.count && <li>Тоо ширхэг: {product.details.count}</li>}
                     {product.details?.packaging && <li>Баглаа боодол: {product.details.packaging}</li>}
                     {product.details?.height && <li>Өндөр: {product.details.height}</li>}
@@ -642,31 +629,10 @@ export default function ProductDetailPage() {
             )}
             {activeTab === 'delivery' && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                <p className="mb-4 font-medium">Хүргэлтийн үнэ тариф:</p>
-                <ul className="list-disc pl-5 space-y-2 mb-4">
-                  <li><span className="font-semibold">Хүргүүлж авах:</span> 10,000₮ (Улаанбаатар хот дотор)</li>
-                  <li><span className="font-semibold">Хөдөө орон нутгийн унаанд тавиулах:</span> 15,000₮</li>
-                </ul>
-                <div className="p-4 bg-yellow-50 text-yellow-800 text-sm rounded border border-yellow-100 flex gap-3">
-                    <div className="shrink-0 mt-0.5">ℹ️</div>
-                    <p>Санамж: Хотын A бүсэд хүргэлт 10,000₮ бөгөөд энэ бүсээс гадуурх хүргэлтэнд нэмэлт төлбөр бодогдоно.</p>
-                </div>
+                <p className="mb-4">Дижитал бүтээгдэхүүн тул бүх захиалга <strong>имэйлээр</strong> илгээгдэнэ. Төлбөр баталгаажсаны дараа захиалга өгөхдөө таны оруулсан имэйл хаяг руу лиценз/код илгээгдэнэ. Нэмэлт хүргэлтийн төлбөр байхгүй.</p>
               </motion.div>
             )}
-            {activeTab === 'care' && (
-              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                <p className="mb-4">
-                  Цэцгээ удаан хадгалахын тулд дараах зөвлөгөөг дагаарай:
-                </p>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Өдөр бүр усыг нь сольж байх</li>
-                  <li>Ишийг ташуу зүсэх</li>
-                  <li>Нарны шууд тусгалаас хол байлгах</li>
-                  <li>Сэрүүн газар хадгалах</li>
-                </ul>
-              </motion.div>
-            )}
-          </div>
+            </div>
         </div>
 
         {/* Similar Products Section */}

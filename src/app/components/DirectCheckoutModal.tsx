@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, MapPin, Phone, CreditCard, CheckCircle2, Smartphone, Loader2, XCircle, Tag } from 'lucide-react';
+import { X, Mail, Phone, CreditCard, CheckCircle2, Smartphone, Loader2, XCircle, Tag } from 'lucide-react';
 import { toast } from 'sonner';
 import { QPayQrDisplay } from '@/app/components/QPayQrDisplay';
 import { createOrder, getOrder, validatePromoCode, type CreateOrderResponse, type ValidatePromoResponse } from '@/app/lib/api';
@@ -24,10 +24,9 @@ interface DirectCheckoutModalProps {
 export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckoutModalProps) {
   const [step, setStep] = useState<'form' | 'payment'>('form');
   const [loading, setLoading] = useState(false);
-  const [deliveryMethod, setDeliveryMethod] = useState<'city' | 'countryside'>('city');
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
-  const [deliveryAddress, setDeliveryAddress] = useState('');
+  const [customerEmail, setCustomerEmail] = useState('');
   const [orderResult, setOrderResult] = useState<CreateOrderResponse | null>(null);
   const [orderStatus, setOrderStatus] = useState<string | null>(null);
   const [promoInput, setPromoInput] = useState('');
@@ -36,9 +35,8 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const productTotal = product.price * product.quantity;
-  const deliveryFee = deliveryMethod === 'city' ? 10000 : 15000;
   const discountAmount = appliedPromo?.valid && appliedPromo.discount_amount ? appliedPromo.discount_amount : 0;
-  const grandTotal = Math.max(0, productTotal + deliveryFee - discountAmount);
+  const grandTotal = Math.max(0, productTotal - discountAmount);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,13 +48,18 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
       toast.error('Утасны дугаараа оруулна уу.');
       return;
     }
+    if (!customerEmail.trim()) {
+      toast.error('Код хүлээн авах имэйл хаягаа оруулна уу.');
+      return;
+    }
     setLoading(true);
     try {
       const res = await createOrder({
         customer_name: customerName.trim(),
         customer_phone: customerPhone.trim(),
-        delivery_method: deliveryMethod,
-        delivery_address: deliveryAddress.trim() || undefined,
+        customer_email: customerEmail.trim(),
+        delivery_method: 'city',
+        delivery_address: customerEmail.trim(),
         items: [{
           id: product.id,
           name: product.name,
@@ -89,7 +92,7 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
     setPromoInput('');
     setCustomerName('');
     setCustomerPhone('');
-    setDeliveryAddress('');
+    setCustomerEmail('');
     onClose();
   };
 
@@ -191,42 +194,19 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">Хүргэлтийн нөхцөл</label>
-                      <div className="grid grid-cols-1 gap-2">
-                        <label className={`flex items-center gap-3 p-3 border rounded-lg cursor-pointer transition-all ${deliveryMethod === 'city' ? 'border-accent bg-accent/5 ring-1 ring-accent' : 'border-gray-200 hover:border-gray-300'}`}>
-                          <input type="radio" name="delivery" className="accent-accent" checked={deliveryMethod === 'city'} onChange={() => setDeliveryMethod('city')} />
-                          <div className="flex-1 text-sm">
-                            <div className="flex items-center justify-between">
-                              <span className="font-medium">Хүргүүлж авах</span>
-                              <span className="font-bold text-accent">10,000₮</span>
-                            </div>
-                            <p className="text-xs text-gray-500">УБ хот дотор (A бүс)</p>
-                          </div>
-                        </label>
-                        <label className={`flex items-center gap-3 p-3 border rounded-lg cursor-pointer transition-all ${deliveryMethod === 'countryside' ? 'border-accent bg-accent/5 ring-1 ring-accent' : 'border-gray-200 hover:border-gray-300'}`}>
-                          <input type="radio" name="delivery" className="accent-accent" checked={deliveryMethod === 'countryside'} onChange={() => setDeliveryMethod('countryside')} />
-                          <div className="flex-1 text-sm">
-                            <div className="flex items-center justify-between">
-                              <span className="font-medium">Орон нутгийн унаанд</span>
-                              <span className="font-bold text-accent">15,000₮</span>
-                            </div>
-                            <p className="text-xs text-gray-500">Унаанд тавьж өгөх хөлс</p>
-                          </div>
-                        </label>
-                      </div>
-                    </div>
-                    <div className="space-y-2">
                       <label className="text-sm font-medium flex items-center gap-2">
-                        <MapPin className="size-4 text-accent" />
-                        {deliveryMethod === 'city' ? 'Хүргэлтийн хаяг' : 'Унааны мэдээлэл'}
+                        <Mail className="size-4 text-accent" />
+                        Код хүлээн авах имэйл хаяг *
                       </label>
-                      <textarea
-                        value={deliveryAddress}
-                        onChange={(e) => setDeliveryAddress(e.target.value)}
-                        rows={3}
-                        placeholder={deliveryMethod === 'city' ? 'Дүүрэг, хороо, байр, орц...' : 'Зогсоол, утас, машин...'}
-                        className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent resize-none"
+                      <input
+                        type="email"
+                        required
+                        value={customerEmail}
+                        onChange={(e) => setCustomerEmail(e.target.value)}
+                        placeholder="name@example.com"
+                        className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent"
                       />
+                      <p className="text-xs text-gray-500">Төлбөр төлсний дараа лиценз/код энэ имэйл хаяг руу илгээгдэнэ.</p>
                     </div>
                   </div>
 
@@ -235,9 +215,9 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
                       <span>Барааны үнэ:</span>
                       <span>{productTotal.toLocaleString()}₮</span>
                     </div>
-                    <div className="flex items-center justify-between text-sm text-gray-600">
+                    <div className="flex items-center justify-between text-sm text-gray-500">
                       <span>Хүргэлт:</span>
-                      <span>{deliveryFee.toLocaleString()}₮</span>
+                      <span>Имэйлээр илгээнэ (нэмэлт төлбөргүй)</span>
                     </div>
                     {appliedPromo?.valid && discountAmount > 0 && (
                       <div className="flex items-center justify-between text-sm text-green-600">
