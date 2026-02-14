@@ -5,7 +5,7 @@ import { ProductGrid, Product } from '@/app/components/ProductGrid';
 import { Loader2 } from 'lucide-react';
 import { getProducts } from '@/app/lib/api';
 
-function mapApiProductToGrid(p: { id: number; name: string; price: number; image: string; discount?: number | null; is_pre_order?: boolean; category?: string }): Product {
+function mapApiProductToGrid(p: { id: number; name: string; price: number; image: string; discount?: number | null; is_pre_order?: boolean; category?: string; stock?: number; is_sold_out?: boolean }): Product {
   const rawPrice = Number(p.price) || 0;
   const discountPercent = p.discount != null && p.discount > 0 ? p.discount : undefined;
   const salePrice = discountPercent
@@ -19,6 +19,8 @@ function mapApiProductToGrid(p: { id: number; name: string; price: number; image
     discount: discountPercent,
     isPreOrder: p.is_pre_order,
     originalPrice: discountPercent ? rawPrice : undefined,
+    stock: p.stock,
+    isSoldOut: p.is_sold_out ?? (typeof p.stock === 'number' && p.stock <= 0),
   };
 }
 

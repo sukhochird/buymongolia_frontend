@@ -16,8 +16,11 @@ export interface Product {
   /** Анхны үнэ (зурвастай харуулах, хямдралтай үед) */
   originalPrice?: number;
   isPreOrder?: boolean;
-  deliveryDate?: string; // Added for Pre-order
-  remainingStock?: number; // Added for Pre-order
+  deliveryDate?: string;
+  remainingStock?: number;
+  /** 0 бол дууссан, захиалах боломжгүй */
+  stock?: number;
+  isSoldOut?: boolean;
 }
 
 interface ProductGridProps {
@@ -114,6 +117,11 @@ export function ProductGrid({
 
                 {/* Badges */}
                 <div className="absolute top-3 left-3 flex flex-col gap-2 z-10">
+                  {(product.isSoldOut ?? (typeof product.stock === 'number' && product.stock <= 0)) && (
+                    <span className="bg-gray-700 text-white px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
+                      Дууссан
+                    </span>
+                  )}
                   {product.discount && (
                     <span className="bg-destructive text-white px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
                       -{product.discount}%

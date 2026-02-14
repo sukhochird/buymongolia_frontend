@@ -89,6 +89,9 @@ export interface ApiProduct {
   details: Record<string, string> | null;
   images: string[];
   featured: boolean;
+  /** Үлдэгдэл тоо ширхэг; default 100. 0 бол дууссан. */
+  stock: number;
+  is_sold_out?: boolean;
   sort_order: number;
   created_at: string | null;
   updated_at: string | null;

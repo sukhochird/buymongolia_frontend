@@ -13,11 +13,8 @@ import { getProduct, getProducts } from '@/app/lib/api';
 interface Product {
   id: number;
   name: string;
-  /** Зарагдах үнэ (хямдрал байвал хямдруулсан үнэ) */
   price: number;
-  /** Хуучин/анхны үнэ (зурвастай харуулах) */
   originalPrice: number;
-  /** Хямдралын хувь (0–100), байхгүй бол хямдралгүй */
   discount?: number;
   description: string;
   images: string[];
@@ -31,6 +28,8 @@ interface Product {
     packaging?: string;
     height?: string;
   };
+  stock?: number;
+  isSoldOut?: boolean;
 }
 
 interface SimilarProduct {
@@ -98,6 +97,8 @@ export default function ProductDetailPage() {
           availability: p.availability,
           supplier: p.supplier,
           details: (p.details as Product['details']) ?? {},
+          stock: p.stock,
+          isSoldOut: p.is_sold_out ?? (typeof p.stock === 'number' && p.stock <= 0),
         });
         const sameCategoryRes = await getProducts({ category: p.category });
         const others = sameCategoryRes.products.filter(x => x.id !== p.id).slice(0, 4);
@@ -146,8 +147,10 @@ export default function ProductDetailPage() {
     }
   };
 
+  const soldOut = product ? (product.isSoldOut ?? (typeof product.stock === 'number' && product.stock <= 0)) : false;
+
   const handleAddToCart = () => {
-    if (!product) return;
+    if (!product || soldOut) return;
     addItem({
       id: product.sku,
       name: product.name,
@@ -158,6 +161,7 @@ export default function ProductDetailPage() {
   };
 
   const handleBuyNow = () => {
+    if (soldOut) return;
     setIsCheckoutModalOpen(true);
   };
 
@@ -457,6 +461,11 @@ export default function ProductDetailPage() {
               </h1>
               
               <div className="flex items-end gap-3 mb-6 flex-wrap">
+                {(product.isSoldOut ?? (typeof product.stock === 'number' && product.stock <= 0)) && (
+                  <span className="bg-gray-700 text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">
+                    Дууссан
+                  </span>
+                )}
                 <span className="text-3xl font-bold text-accent">{product.price.toLocaleString()}₮</span>
                 {(product.discount != null && product.discount > 0) && (
                   <>
@@ -477,14 +486,16 @@ export default function ProductDetailPage() {
                   <div className="flex items-center border border-gray-200 rounded-md">
                     <button 
                       onClick={decrementQuantity}
-                      className="p-3 hover:bg-gray-50 transition-colors"
+                      disabled={soldOut}
+                      className="p-3 hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <Minus className="size-4" />
                     </button>
                     <span className="w-12 text-center font-medium">{quantity}</span>
                     <button 
                       onClick={incrementQuantity}
-                      className="p-3 hover:bg-gray-50 transition-colors"
+                      disabled={soldOut}
+                      className="p-3 hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <Plus className="size-4" />
                     </button>
@@ -497,18 +508,25 @@ export default function ProductDetailPage() {
                 <div className="hidden md:grid grid-cols-2 gap-4">
                   <button 
                     onClick={handleAddToCart}
-                    className="flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-accent text-accent font-bold uppercase tracking-wider rounded hover:bg-accent hover:text-white transition-colors"
+                    disabled={soldOut}
+                    className="flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-accent text-accent font-bold uppercase tracking-wider rounded hover:bg-accent hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-400 disabled:hover:bg-transparent disabled:hover:text-gray-400"
                   >
                     <ShoppingCart className="size-4" />
                     Сагсанд хийх
                   </button>
                   <button 
                     onClick={handleBuyNow}
-                    className="flex items-center justify-center gap-2 px-8 py-3.5 bg-accent text-white font-bold uppercase tracking-wider rounded hover:bg-accent/90 transition-colors shadow-lg shadow-accent/20"
+                    disabled={soldOut}
+                    className="flex items-center justify-center gap-2 px-8 py-3.5 bg-accent text-white font-bold uppercase tracking-wider rounded hover:bg-accent/90 transition-colors shadow-lg shadow-accent/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-300"
                   >
                     Худалдаж авах
                   </button>
                 </div>
+                {soldOut && (
+                  <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2">
+                    Энэ бүтээгдэхүүн одоогоор дууссан тул захиалах боломжгүй.
+                  </p>
+                )}
               </div>
 
               {/* Additional Info Block */}
@@ -691,13 +709,15 @@ export default function ProductDetailPage() {
         <div className="flex gap-3">
           <button 
             onClick={handleAddToCart}
-            className="flex-1 flex items-center justify-center gap-2 h-12 border border-accent text-accent font-bold rounded-lg hover:bg-accent/5 transition-colors"
+            disabled={soldOut}
+            className="flex-1 flex items-center justify-center gap-2 h-12 border border-accent text-accent font-bold rounded-lg hover:bg-accent/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-400"
           >
             <ShoppingCart className="size-5" />
           </button>
           <button 
             onClick={handleBuyNow}
-            className="flex-[3] h-12 bg-accent text-white font-bold rounded-lg shadow-lg shadow-accent/20 hover:bg-accent/90 transition-colors uppercase tracking-wide text-sm"
+            disabled={soldOut}
+            className="flex-[3] h-12 bg-accent text-white font-bold rounded-lg shadow-lg shadow-accent/20 hover:bg-accent/90 transition-colors uppercase tracking-wide text-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-300"
           >
             Худалдаж авах
           </button>

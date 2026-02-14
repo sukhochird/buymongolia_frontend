@@ -40,6 +40,8 @@ function mapApiProductToGrid(p: ApiProduct): Product {
     image: d.image,
     discount: d.discount ?? undefined,
     isPreOrder: d.is_pre_order,
+    stock: d.stock,
+    isSoldOut: d.is_sold_out ?? (typeof d.stock === 'number' && d.stock <= 0),
   };
 }
 
@@ -418,6 +420,11 @@ function ProductsPageContent() {
 
                       {/* Badges */}
                       <div className="absolute top-3 left-3 flex flex-col gap-2 z-10">
+                        {(product.is_sold_out ?? (typeof product.stock === 'number' && product.stock <= 0)) && (
+                          <span className="bg-gray-700 text-white px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
+                            Дууссан
+                          </span>
+                        )}
                         {product.discount && (
                           <span className="bg-destructive text-white px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
                             -{product.discount}%
