@@ -13,12 +13,12 @@ interface FAQItemProps {
 
 function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
   return (
-    <div className="border-b border-gray-100 last:border-0">
+    <div className="border-b border-border last:border-0">
       <button
         onClick={onToggle}
-        className="w-full py-4 flex items-center justify-between text-left gap-4 hover:bg-gray-50/50 transition-colors px-4 rounded-lg"
+        className="w-full py-4 flex items-center justify-between text-left gap-4 hover:bg-secondary/50 transition-colors px-4 rounded-lg"
       >
-        <span className="font-medium text-gray-900">{question}</span>
+        <span className="font-medium text-foreground">{question}</span>
         <span className="shrink-0 text-accent">
           {isOpen ? <Minus className="size-5" /> : <Plus className="size-5" />}
         </span>
@@ -32,7 +32,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="pb-4 pt-1 px-4 text-gray-600 leading-relaxed text-sm whitespace-pre-line">
+            <div className="pb-4 pt-1 px-4 text-muted-foreground leading-relaxed text-sm whitespace-pre-line">
               {answer}
             </div>
           </motion.div>
@@ -69,7 +69,7 @@ export function FAQSection() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-background">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
             {/* Left Content */}
@@ -79,12 +79,12 @@ export function FAQSection() {
                         <HelpCircle className="size-6" />
                     </div>
                     <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Түгээмэл асуулт хариулт</h2>
-                    <p className="text-gray-600 mb-8 leading-relaxed">
+                    <p className="text-muted-foreground mb-8 leading-relaxed">
                         Таны сонирхсон асуултад хариулахад бид бэлэн байна. Хэрэв танд нэмэлт мэдээлэл хэрэгтэй бол бидэнтэй холбогдоорой.
                     </p>
                     <a 
                         href="tel:76073333"
-                        className="inline-flex items-center justify-center px-8 py-4 bg-black text-white font-medium rounded-lg hover:bg-black/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                        className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-medium rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
                     >
                         Бидэнтэй холбогдох
                     </a>
@@ -93,7 +93,7 @@ export function FAQSection() {
 
             {/* Right Accordion */}
             <div className="lg:col-span-7">
-                <div className="bg-gray-50 rounded-2xl p-2 md:p-6 border border-gray-100 shadow-sm">
+                <div className="bg-muted/50 rounded-2xl p-2 md:p-6 border border-border shadow-sm">
                     {faqs.map((faq, index) => (
                         <FAQItem
                             key={index}

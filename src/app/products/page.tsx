@@ -157,7 +157,7 @@ function ProductsPageContent() {
     return (
       <div className="select-none">
         <div 
-          className={`flex items-center justify-between py-1.5 cursor-pointer hover:text-accent transition-colors ${isSelected ? 'text-accent font-medium' : 'text-gray-600'}`}
+          className={`flex items-center justify-between py-1.5 cursor-pointer hover:text-accent transition-colors ${isSelected ? 'text-accent font-medium' : 'text-muted-foreground'}`}
           style={{ paddingLeft: `${level * 12}px` }}
         >
           <span onClick={() => { setFilters({ category: category.slug }); if (window.innerWidth < 1024) setShowMobileFilters(false); }}>
@@ -170,7 +170,7 @@ function ProductsPageContent() {
                 e.stopPropagation();
                 toggleCategory(category.id as number | string);
               }}
-              className="p-1 hover:bg-gray-100 rounded-full"
+              className="p-1 hover:bg-secondary rounded-full"
             >
               <ChevronDown className={`size-3.5 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
             </button>
@@ -196,14 +196,14 @@ function ProductsPageContent() {
   };
 
   return (
-    <div className="bg-white min-h-screen animate-in fade-in duration-500">
+    <div className="bg-background min-h-screen animate-in fade-in duration-500">
       {/* Header / Breadcrumb */}
-      <div className="border-b border-gray-100 bg-gray-50/50">
+      <div className="border-b border-border bg-muted/30">
         <div className="max-w-[1440px] mx-auto px-4 md:px-8 py-8">
-          <nav className="text-sm text-gray-500 mb-4">
-             <Link href="/" className="hover:text-black">Нүүр</Link>
+          <nav className="text-sm text-muted-foreground mb-4">
+             <Link href="/" className="hover:text-foreground">Нүүр</Link>
              <span className="mx-2">/</span>
-             <span className="text-black font-medium">Бүх бүтээгдэхүүн</span>
+             <span className="text-foreground font-medium">Бүх бүтээгдэхүүн</span>
           </nav>
           <h1 className="text-3xl md:text-4xl font-serif font-medium">Бүтээгдэхүүний жагсаалт</h1>
         </div>
@@ -219,11 +219,11 @@ function ProductsPageContent() {
                 onClick={() => setShowMobileFilters(false)}
               />
             )}
-            <aside className={`fixed inset-0 z-50 bg-white lg:bg-transparent lg:static lg:w-64 lg:block shrink-0 transition-transform duration-300 ${showMobileFilters ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+            <aside className={`fixed inset-0 z-50 bg-background lg:bg-transparent lg:static lg:w-64 lg:block shrink-0 transition-transform duration-300 ${showMobileFilters ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
               <div className="h-full overflow-y-auto p-6 lg:p-0 safe-area-bottom">
                 <div className="flex items-center justify-between lg:hidden mb-6">
                   <h2 className="text-xl font-bold font-serif">Шүүлтүүр</h2>
-                  <button onClick={() => setShowMobileFilters(false)} className="p-2 -mr-2 text-gray-500 hover:bg-gray-100 rounded-full">
+                  <button onClick={() => setShowMobileFilters(false)} className="p-2 -mr-2 text-muted-foreground hover:bg-secondary rounded-full">
                       <X className="size-6" />
                   </button>
                 </div>
@@ -247,7 +247,7 @@ function ProductsPageContent() {
                   <div className="space-y-1">
                     {/* All Option */}
                     <div 
-                      className={`cursor-pointer hover:text-accent transition-colors py-1.5 ${!categorySlug && !occasionSlug ? 'text-accent font-medium' : 'text-gray-600'}`}
+                      className={`cursor-pointer hover:text-accent transition-colors py-1.5 ${!categorySlug && !occasionSlug ? 'text-accent font-medium' : 'text-muted-foreground'}`}
                       onClick={() => { setFilters({ category: null, occasion: null }); if (window.innerWidth < 1024) setShowMobileFilters(false); }}
                     >
                       Бүгд
@@ -280,7 +280,7 @@ function ProductsPageContent() {
                       {occasionCategory.subcategories?.map(sub => (
                         <div
                           key={sub.id}
-                          className={`cursor-pointer py-1.5 hover:text-accent transition-colors ${occasionSlug === sub.slug ? 'text-accent font-medium' : 'text-gray-600'}`}
+                          className={`cursor-pointer py-1.5 hover:text-accent transition-colors ${occasionSlug === sub.slug ? 'text-accent font-medium' : 'text-muted-foreground'}`}
                           onClick={() => { setFilters({ occasion: sub.slug }); if (window.innerWidth < 1024) setShowMobileFilters(false); }}
                         >
                           {sub.name}
@@ -303,7 +303,7 @@ function ProductsPageContent() {
                       onChange={(e) => setPriceRange([0, parseInt(e.target.value)])}
                       className="w-full accent-accent"
                     />
-                    <div className="flex justify-between text-sm text-gray-600">
+                    <div className="flex justify-between text-sm text-muted-foreground">
                       <span>0₮</span>
                       <span>{priceRange[1].toLocaleString()}₮</span>
                     </div>
@@ -313,7 +313,7 @@ function ProductsPageContent() {
                   <div className="mt-8 lg:hidden">
                     <button 
                         onClick={() => setShowMobileFilters(false)}
-                        className="w-full bg-accent text-white py-3 rounded-lg font-bold uppercase tracking-wide"
+                        className="w-full bg-accent text-accent-foreground py-3 rounded-lg font-bold uppercase tracking-wide"
                     >
                         Үр дүнг харах
                     </button>
@@ -326,34 +326,34 @@ function ProductsPageContent() {
           {/* Main Content */}
           <div className="flex-1">
             {/* Toolbar */}
-            <div className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm py-3 mb-6 border-b border-gray-100 -mx-4 px-4 md:mx-0 md:px-0 md:static md:bg-transparent md:border-none md:py-0 md:mb-8 transition-all">
+            <div className="sticky top-0 z-30 bg-background/95 backdrop-blur-sm py-3 mb-6 border-b border-border -mx-4 px-4 md:mx-0 md:px-0 md:static md:bg-transparent md:border-none md:py-0 md:mb-8 transition-all">
               <div className="flex items-center justify-between gap-4">
                 {/* Mobile Filter Trigger */}
                 <button 
                     onClick={() => setShowMobileFilters(true)}
-                    className="lg:hidden flex items-center gap-2 px-4 py-2.5 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-black transition-colors shadow-sm"
+                    className="lg:hidden flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-colors shadow-sm"
                 >
                     <SlidersHorizontal className="size-4" />
                     Шүүлтүүр
                 </button>
 
-                <p className="text-gray-600 hidden md:block">
-                  Нийт <span className="font-bold text-black">{filteredProducts.length}</span> бүтээгдэхүүн олдлоо
+                <p className="text-muted-foreground hidden md:block">
+                  Нийт <span className="font-bold text-foreground">{filteredProducts.length}</span> бүтээгдэхүүн олдлоо
                 </p>
                 
                 <div className="flex items-center gap-2 ml-auto">
                   {/* View Mode */}
-                  <div className="hidden sm:flex items-center border border-gray-200 rounded-md bg-white">
+                  <div className="hidden sm:flex items-center border border-border rounded-md bg-card">
                     <button 
                       onClick={() => setViewMode('grid')}
-                      className={`p-2 transition-colors ${viewMode === 'grid' ? 'bg-gray-100 text-black' : 'text-gray-400 hover:text-gray-600'}`}
+                      className={`p-2 transition-colors ${viewMode === 'grid' ? 'bg-secondary text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                     >
                       <LayoutGrid className="size-5" />
                     </button>
-                    <div className="w-px h-6 bg-gray-200" />
+                    <div className="w-px h-6 bg-border" />
                     <button 
                       onClick={() => setViewMode('list')}
-                      className={`p-2 transition-colors ${viewMode === 'list' ? 'bg-gray-100 text-black' : 'text-gray-400 hover:text-gray-600'}`}
+                      className={`p-2 transition-colors ${viewMode === 'list' ? 'bg-secondary text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                     >
                       <List className="size-5" />
                     </button>
@@ -361,7 +361,7 @@ function ProductsPageContent() {
 
                   {/* Sort */}
                   <div className="relative group">
-                    <button className="flex items-center gap-2 px-4 py-2.5 border border-gray-200 rounded-lg bg-white hover:border-gray-300 transition-colors text-sm font-medium whitespace-nowrap">
+                    <button className="flex items-center gap-2 px-4 py-2.5 border border-border rounded-lg bg-card hover:border-foreground/30 transition-colors text-sm font-medium whitespace-nowrap">
                       <span className="hidden sm:inline">Эрэмбэлэх</span>
                       <span className="sm:hidden">Эрэмбэ</span>
                       <ChevronDown className="size-4" />
@@ -369,15 +369,15 @@ function ProductsPageContent() {
                   </div>
                 </div>
               </div>
-              <p className="text-xs text-gray-500 mt-2 md:hidden">
-                Нийт <span className="font-bold text-black">{filteredProducts.length}</span> бүтээгдэхүүн
+              <p className="text-xs text-muted-foreground mt-2 md:hidden">
+                Нийт <span className="font-bold text-foreground">{filteredProducts.length}</span> бүтээгдэхүүн
               </p>
             </div>
 
             {/* Products Grid/List */}
             {productsLoading ? (
               <div className="flex items-center justify-center py-20">
-                <Loader2 className="size-10 animate-spin text-gray-300" />
+                <Loader2 className="size-10 animate-spin text-muted-foreground" />
               </div>
             ) : filteredProducts.length > 0 ? (
               <div className={`grid gap-x-6 gap-y-10 ${
@@ -395,7 +395,7 @@ function ProductsPageContent() {
                     className={`group cursor-pointer ${viewMode === 'list' ? 'flex gap-6 items-center' : ''}`}
                   >
                     {/* Image */}
-                    <div className={`relative overflow-hidden rounded-md bg-[#F5F5F5] ${viewMode === 'grid' ? 'aspect-[4/5] mb-4' : 'w-48 aspect-[4/5] shrink-0'}`}>
+                    <div className={`relative overflow-hidden rounded-md bg-muted ${viewMode === 'grid' ? 'aspect-[4/5] mb-4' : 'w-48 aspect-[4/5] shrink-0'}`}>
                       <img
                         src={product.image}
                         alt={product.name}
@@ -410,8 +410,8 @@ function ProductsPageContent() {
                         }}
                         className={`absolute top-3 right-3 p-2 rounded-full transition-all z-10 ${
                           isFavorite(product.id) 
-                            ? 'bg-destructive text-white' 
-                            : 'bg-white/80 backdrop-blur text-gray-500 hover:text-destructive'
+                            ? 'bg-destructive text-destructive-foreground' 
+                            : 'bg-background/80 backdrop-blur text-muted-foreground hover:text-destructive'
                         }`}
                         title={isFavorite(product.id) ? "Хүслийн жагсаалтаас хасах" : "Хүслийн жагсаалтад нэмэх"}
                       >
@@ -421,12 +421,12 @@ function ProductsPageContent() {
                       {/* Badges */}
                       <div className="absolute top-3 left-3 flex flex-col gap-2 z-10">
                         {(product.is_sold_out ?? (typeof product.stock === 'number' && product.stock <= 0)) && (
-                          <span className="bg-gray-700 text-white px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
+                          <span className="bg-muted-foreground text-background px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
                             Дууссан
                           </span>
                         )}
                         {product.discount && (
-                          <span className="bg-destructive text-white px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
+                          <span className="bg-destructive text-destructive-foreground px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
                             -{product.discount}%
                           </span>
                         )}
@@ -440,7 +440,7 @@ function ProductsPageContent() {
 
                     {/* Info */}
                     <div className="space-y-2 flex-1">
-                      <div className="text-xs text-gray-500 mb-1">{product.category}</div>
+                      <div className="text-xs text-muted-foreground mb-1">{product.category}</div>
                       <h3 className={`font-medium leading-tight group-hover:text-accent transition-colors ${viewMode === 'grid' ? 'text-sm line-clamp-2 min-h-[2.5em]' : 'text-xl'}`}>
                         {product.name}
                       </h3>
@@ -457,7 +457,7 @@ function ProductsPageContent() {
                       </div>
                       
                       {viewMode === 'list' && (
-                        <p className="text-gray-500 text-sm mt-4 line-clamp-2">
+                        <p className="text-muted-foreground text-sm mt-4 line-clamp-2">
                           Энэхүү тансаг зэрэглэлийн баглаа нь таны сэтгэлийн үгийг илэрхийлэх төгс бэлэг юм. Шинэхэн, анхилуун үнэртэй цэцэгс.
                         </p>
                       )}
@@ -467,7 +467,7 @@ function ProductsPageContent() {
                 ))}
               </div>
             ) : (
-              <div className="py-20 text-center text-gray-500">
+              <div className="py-20 text-center text-muted-foreground">
                 <Filter className="size-12 mx-auto mb-4 opacity-20" />
                 <p>Бүтээгдэхүүн олдсонгүй.</p>
                 <button 
@@ -489,7 +489,7 @@ function ProductsPageContent() {
                   type="button"
                   onClick={() => setFilters({ page: currentPage - 1 })}
                   disabled={currentPage <= 1}
-                  className="size-10 flex items-center justify-center rounded border border-gray-200 hover:border-black disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  className="size-10 flex items-center justify-center rounded border border-border hover:border-foreground disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                 >
                   Өмнөх
                 </button>
@@ -507,14 +507,14 @@ function ProductsPageContent() {
                   }, [])
                   .map((p, i) =>
                     p === -1 ? (
-                      <span key={`ellipsis-${i}`} className="px-1 text-gray-400">…</span>
+                      <span key={`ellipsis-${i}`} className="px-1 text-muted-foreground">…</span>
                     ) : (
                       <button
                         key={p}
                         type="button"
                         onClick={() => setFilters({ page: p })}
                         className={`size-10 flex items-center justify-center rounded border transition-colors ${
-                          currentPage === p ? 'bg-black text-white border-black' : 'border-gray-200 hover:border-black'
+                          currentPage === p ? 'bg-primary text-primary-foreground border-primary' : 'border-border hover:border-foreground'
                         }`}
                       >
                         {p}
@@ -525,7 +525,7 @@ function ProductsPageContent() {
                   type="button"
                   onClick={() => setFilters({ page: currentPage + 1 })}
                   disabled={currentPage >= totalPages}
-                  className="size-10 flex items-center justify-center rounded border border-gray-200 hover:border-black disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  className="size-10 flex items-center justify-center rounded border border-border hover:border-foreground disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                 >
                   Дараах
                 </button>
@@ -542,8 +542,8 @@ export default function ProductsPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-white flex items-center justify-center">
-          <Loader2 className="size-10 animate-spin text-gray-300" />
+        <div className="min-h-screen bg-background flex items-center justify-center">
+          <Loader2 className="size-10 animate-spin text-muted-foreground" />
         </div>
       }
     >

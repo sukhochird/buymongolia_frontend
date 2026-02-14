@@ -2,6 +2,7 @@
 
 import { ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
+import { ThemeProvider } from 'next-themes';
 import { Toaster } from 'sonner';
 import { Header } from '@/app/components/Header';
 import { Footer } from '@/app/components/Footer';
@@ -19,18 +20,20 @@ export function ClientLayout({ children }: ClientLayoutProps) {
     pathname === '/products' || (pathname?.startsWith('/products/') && pathname !== '/products');
 
   return (
-    <CartProvider>
-      <FavoritesProvider>
-        <div className="min-h-screen flex flex-col">
-          <Toaster position="top-center" expand={true} richColors />
-          <Header />
-          <CartDrawer />
-          <main className="flex-1">{children}</main>
-          <div className={hideFooterOnMobile ? 'hidden md:block' : ''}>
-            <Footer />
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <CartProvider>
+        <FavoritesProvider>
+          <div className="min-h-screen flex flex-col bg-background text-foreground">
+            <Toaster position="top-center" expand={true} richColors />
+            <Header />
+            <CartDrawer />
+            <main className="flex-1">{children}</main>
+            <div className={hideFooterOnMobile ? 'hidden md:block' : ''}>
+              <Footer />
+            </div>
           </div>
-        </div>
-      </FavoritesProvider>
-    </CartProvider>
+        </FavoritesProvider>
+      </CartProvider>
+    </ThemeProvider>
   );
 }

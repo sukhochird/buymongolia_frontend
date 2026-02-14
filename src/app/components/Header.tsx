@@ -12,10 +12,13 @@ import {
   Youtube,
   Instagram,
   Facebook,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "motion/react";
 import { useCart } from "@/app/context/CartContext";
 import { useFavorites } from "@/app/context/FavoritesContext";
@@ -30,6 +33,9 @@ export function Header() {
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<number | null>(null);
   const [navItems, setNavItems] = useState<ApiHeaderMenuItem[]>([]);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     getHeaderMenu()
@@ -91,7 +97,7 @@ export function Header() {
   return (
     <>
       {/* Top bar */}
-      <div className="bg-black text-white py-2 text-[11px] uppercase tracking-widest font-medium">
+      <div className="bg-primary text-primary-foreground py-2 text-[11px] uppercase tracking-widest font-medium">
         <div className="max-w-[1440px] mx-auto px-4 md:px-8 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <span className="opacity-80">
@@ -131,10 +137,10 @@ export function Header() {
       </div>
 
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 border-b ${
+        className={`sticky top-0 z-50 transition-all duration-300 border-b border-border ${
           isScrolled
-            ? "bg-white/90 backdrop-blur-md shadow-md border-gray-200"
-            : "bg-white border-gray-100 shadow-sm"
+            ? "bg-background/90 backdrop-blur-md shadow-md"
+            : "bg-background shadow-sm"
         }`}
       >
         {/* Main header */}
@@ -176,7 +182,7 @@ export function Header() {
                     <div
                       className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[220px] lg:w-[260px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top"
                     >
-                      <div className="bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden p-2">
+                      <div className="bg-popover text-popover-foreground rounded-lg shadow-xl border border-border overflow-hidden p-2">
                         {item.children.map((child) => (
                           <div key={child.id} className="relative group/sub">
                             {isExternal(child) ? (
@@ -184,7 +190,7 @@ export function Header() {
                                 href={child.href || '#'}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:text-accent hover:bg-gray-50 rounded-md transition-colors"
+                                className="flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-accent/10 rounded-md transition-colors"
                               >
                                 {child.label}
                                 {child.children?.length ? <ChevronRight className="size-3.5 opacity-50" /> : null}
@@ -198,7 +204,7 @@ export function Header() {
                                   router.push(path || '/');
                                   setTimeout(() => document.getElementById(hash || '')?.scrollIntoView({ behavior: 'smooth' }), 150);
                                 }}
-                                className="flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:text-accent hover:bg-gray-50 rounded-md transition-colors"
+                                className="flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-accent/10 rounded-md transition-colors"
                               >
                                 {child.label}
                                 {child.children?.length ? <ChevronRight className="size-3.5 opacity-50" /> : null}
@@ -206,7 +212,7 @@ export function Header() {
                             ) : (
                               <Link
                                 href={child.href || '/'}
-                                className="flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:text-accent hover:bg-gray-50 rounded-md transition-colors"
+                                className="flex items-center justify-between px-3 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-accent/10 rounded-md transition-colors"
                               >
                                 {child.label}
                                 {child.children?.length ? <ChevronRight className="size-3.5 opacity-50" /> : null}
@@ -214,15 +220,15 @@ export function Header() {
                             )}
                             {/* Level 2 Submenu (Flyout) */}
                             {child.children && child.children.length > 0 && (
-                              <div className="absolute top-0 left-full ml-2 w-[200px] bg-white rounded-lg shadow-xl border border-gray-100 p-2 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200">
+                              <div className="absolute top-0 left-full ml-2 w-[200px] bg-popover text-popover-foreground rounded-lg shadow-xl border border-border p-2 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200">
                                 {child.children.map((sub) => (
                                   <span key={sub.id}>
                                     {isExternal(sub) ? (
-                                      <a href={sub.href || '#'} target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-sm text-gray-600 hover:text-accent hover:bg-gray-50 rounded-md transition-colors">{sub.label}</a>
+                                      <a href={sub.href || '#'} target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-accent/10 rounded-md transition-colors">{sub.label}</a>
                                     ) : sub.link_type === 'fragment' ? (
-                                      <a href={sub.href} onClick={(e) => { e.preventDefault(); const [path, hash] = sub.href.split('#'); router.push(path || '/'); setTimeout(() => document.getElementById(hash || '')?.scrollIntoView({ behavior: 'smooth' }), 150); }} className="block px-3 py-2 text-sm text-gray-600 hover:text-accent hover:bg-gray-50 rounded-md transition-colors">{sub.label}</a>
+                                      <a href={sub.href} onClick={(e) => { e.preventDefault(); const [path, hash] = sub.href.split('#'); router.push(path || '/'); setTimeout(() => document.getElementById(hash || '')?.scrollIntoView({ behavior: 'smooth' }), 150); }} className="block px-3 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-accent/10 rounded-md transition-colors">{sub.label}</a>
                                     ) : (
-                                      <Link href={sub.href || '/'} className="block px-3 py-2 text-sm text-gray-600 hover:text-accent hover:bg-gray-50 rounded-md transition-colors">{sub.label}</Link>
+                                      <Link href={sub.href || '/'} className="block px-3 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-accent/10 rounded-md transition-colors">{sub.label}</Link>
                                     )}
                                   </span>
                                 ))}
@@ -239,32 +245,43 @@ export function Header() {
 
             {/* Action icons */}
             <div className="flex items-center gap-2 md:gap-4">
+              {mounted && (
+                <button
+                  type="button"
+                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                  className="p-2.5 hover:bg-secondary rounded-full transition-colors"
+                  title={theme === 'dark' ? 'Гэрэл горим' : 'Харанхуй горим'}
+                  aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                >
+                  {theme === 'dark' ? <Sun className="size-5" /> : <Moon className="size-5" />}
+                </button>
+              )}
               <button
-                className="p-2.5 hover:bg-[#F5F5F5] rounded-full transition-colors hidden md:block"
+                className="p-2.5 hover:bg-secondary rounded-full transition-colors hidden md:block"
                 title="Phone"
               >
                 <Phone className="size-5" />
               </button>
               <button
                 onClick={() => router.push('/favorites')}
-                className="p-2.5 hover:bg-[#F5F5F5] rounded-full transition-colors relative group"
+                className="p-2.5 hover:bg-secondary rounded-full transition-colors relative group"
                 title="Wishlist"
               >
                 <Heart className="size-5 group-hover:text-destructive transition-colors" />
                 {favoritesCount > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 bg-destructive text-white text-[10px] font-bold size-4.5 flex items-center justify-center rounded-full border-2 border-white animate-in zoom-in duration-300">
+                  <span className="absolute -top-0.5 -right-0.5 bg-destructive text-destructive-foreground text-[10px] font-bold size-4.5 flex items-center justify-center rounded-full border-2 border-background animate-in zoom-in duration-300">
                     {favoritesCount}
                   </span>
                 )}
               </button>
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="p-2.5 hover:bg-[#F5F5F5] rounded-full transition-colors relative group"
+                className="p-2.5 hover:bg-secondary rounded-full transition-colors relative group"
                 title="Cart"
               >
                 <ShoppingCart className="size-5 group-hover:text-accent transition-colors" />
                 {totalItems > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 bg-accent text-white text-[10px] font-bold size-4.5 flex items-center justify-center rounded-full border-2 border-white animate-in zoom-in duration-300">
+                  <span className="absolute -top-0.5 -right-0.5 bg-accent text-accent-foreground text-[10px] font-bold size-4.5 flex items-center justify-center rounded-full border-2 border-background animate-in zoom-in duration-300">
                     {totalItems}
                   </span>
                 )}
@@ -294,9 +311,9 @@ export function Header() {
                 damping: 25,
                 stiffness: 200,
               }}
-              className="fixed inset-y-0 left-0 w-[85%] max-w-sm bg-white z-50 md:hidden shadow-2xl flex flex-col"
+              className="fixed inset-y-0 left-0 w-[85%] max-w-sm bg-background border-r border-border z-50 md:hidden shadow-2xl flex flex-col"
             >
-              <div className="p-4 border-b flex items-center justify-between">
+              <div className="p-4 border-b border-border flex items-center justify-between">
                 <span className="font-serif text-xl font-bold">
                   Цэс
                 </span>
@@ -308,13 +325,13 @@ export function Header() {
                 </button>
               </div>
 
-              <div className="p-4 border-b">
+              <div className="p-4 border-b border-border">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
                   <input
                     type="text"
                     placeholder="Хайх..."
-                    className="w-full pl-10 pr-4 py-2.5 bg-secondary rounded-lg text-sm focus:outline-none"
+                    className="w-full pl-10 pr-4 py-2.5 bg-secondary rounded-lg text-sm focus:outline-none text-foreground placeholder:text-muted-foreground"
                   />
                 </div>
               </div>
@@ -323,7 +340,7 @@ export function Header() {
                 {navItems.map((item) => (
                   <div key={item.id}>
                     <div
-                      className="flex items-center justify-between px-6 py-3 hover:bg-secondary transition-colors text-sm font-medium"
+                      className="flex items-center justify-between px-6 py-3 hover:bg-secondary transition-colors text-sm font-medium text-foreground"
                       onClick={(e) => {
                         if (hasDropdown(item)) {
                           e.preventDefault();
@@ -363,11 +380,11 @@ export function Header() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          className="bg-gray-50 overflow-hidden"
+                          className="bg-secondary/50 overflow-hidden"
                         >
                           {item.children.map((child) => (
                             <div key={child.id} className="pl-6">
-                              <div className="flex items-center justify-between pr-6 py-2.5 text-sm text-gray-600">
+                              <div className="flex items-center justify-between pr-6 py-2.5 text-sm text-muted-foreground">
                                 {isExternal(child) ? (
                                   <a href={child.href || '#'} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>{child.label}</a>
                                 ) : child.link_type === 'fragment' ? (
@@ -387,21 +404,21 @@ export function Header() {
                                   <Link href={child.href || '/'} onClick={() => setIsMenuOpen(false)}>{child.label}</Link>
                                 )}
                                 {child.children && child.children.length > 0 && (
-                                  <span className="text-[10px] text-gray-400 bg-white px-1.5 py-0.5 rounded border border-gray-200">
+                                  <span className="text-[10px] text-muted-foreground bg-muted px-1.5 py-0.5 rounded border border-border">
                                     {child.children.length}
                                   </span>
                                 )}
                               </div>
                               {child.children && child.children.length > 0 && (
-                                <div className="pl-4 border-l border-gray-200 mb-2">
+                                <div className="pl-4 border-l border-border mb-2">
                                   {child.children.map((sub) => (
                                     <span key={sub.id}>
                                       {isExternal(sub) ? (
-                                        <a href={sub.href || '#'} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className="block py-2 text-sm text-gray-500 hover:text-accent">{sub.label}</a>
+                                        <a href={sub.href || '#'} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className="block py-2 text-sm text-muted-foreground hover:text-accent">{sub.label}</a>
                                       ) : sub.link_type === 'fragment' ? (
-                                        <a href={sub.href} onClick={(e) => { e.preventDefault(); const [path, hash] = sub.href.split('#'); router.push(path || '/'); setIsMenuOpen(false); setTimeout(() => document.getElementById(hash || '')?.scrollIntoView({ behavior: 'smooth' }), 150); }} className="block py-2 text-sm text-gray-500 hover:text-accent">{sub.label}</a>
+                                        <a href={sub.href} onClick={(e) => { e.preventDefault(); const [path, hash] = sub.href.split('#'); router.push(path || '/'); setIsMenuOpen(false); setTimeout(() => document.getElementById(hash || '')?.scrollIntoView({ behavior: 'smooth' }), 150); }} className="block py-2 text-sm text-muted-foreground hover:text-accent">{sub.label}</a>
                                       ) : (
-                                        <Link href={sub.href || '/'} onClick={() => setIsMenuOpen(false)} className="block py-2 text-sm text-gray-500 hover:text-accent">{sub.label}</Link>
+                                        <Link href={sub.href || '/'} onClick={() => setIsMenuOpen(false)} className="block py-2 text-sm text-muted-foreground hover:text-accent">{sub.label}</Link>
                                       )}
                                     </span>
                                   ))}
@@ -420,7 +437,7 @@ export function Header() {
                 <div className="flex gap-4 justify-center">
                   <a
                     href="#"
-                    className="p-3 bg-white rounded-full shadow-sm hover:text-accent"
+                    className="p-3 bg-card rounded-full shadow-sm hover:text-accent border border-border"
                   >
                     <Phone className="size-5" />
                   </a>
@@ -430,11 +447,11 @@ export function Header() {
                         router.push('/favorites');
                         setIsMenuOpen(false);
                     }}
-                    className="p-3 bg-white rounded-full shadow-sm hover:text-destructive relative"
+                    className="p-3 bg-card rounded-full shadow-sm hover:text-destructive relative border border-border"
                   >
                     <Heart className="size-5" />
                     {favoritesCount > 0 && (
-                      <span className="absolute -top-1 -right-1 bg-destructive text-white text-[10px] font-bold size-4.5 flex items-center justify-center rounded-full border-2 border-white">
+                      <span className="absolute -top-1 -right-1 bg-destructive text-destructive-foreground text-[10px] font-bold size-4.5 flex items-center justify-center rounded-full border-2 border-background">
                         {favoritesCount}
                       </span>
                     )}

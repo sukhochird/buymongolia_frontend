@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="mn">
+    <html lang="mn" suppressHydrationWarning>
       <body className={fontLogo.variable}>
         <ClientLayout>{children}</ClientLayout>
       </body>

@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 export function IntroSection() {
   return (
-    <section className="bg-white pt-2 pb-6 md:pt-4 md:pb-8 relative z-5">
+    <section className="bg-background pt-2 pb-6 md:pt-4 md:pb-8 relative z-5">
       <div className="max-w-3xl mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

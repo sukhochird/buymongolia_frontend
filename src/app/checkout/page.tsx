@@ -109,13 +109,13 @@ export default function CheckoutPage() {
     const qpay = orderResult.qpay;
     const isPaid = orderStatus === 'paid';
     return (
-      <div className="min-h-screen bg-gray-50 pt-12 pb-12 animate-in fade-in duration-500">
+      <div className="min-h-screen bg-background pt-12 pb-12 animate-in fade-in duration-500">
         <div className="max-w-[600px] mx-auto px-4 md:px-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-black transition-colors mb-6">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-6">
             <ArrowLeft className="size-4" />
             Нүүр хуудас
           </Link>
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8">
+          <div className="bg-card rounded-xl shadow-sm border border-border p-6 md:p-8">
             <div className="flex items-center gap-3 mb-4">
               <div className={`size-12 rounded-full flex items-center justify-center ${isPaid ? 'bg-green-100' : 'bg-amber-100'}`}>
                 {isPaid ? (
@@ -126,7 +126,7 @@ export default function CheckoutPage() {
               </div>
               <div className="flex-1">
                 <h1 className="text-xl font-serif font-semibold">Захиалга #{orderResult.order_number}</h1>
-                <p className="text-gray-500 text-sm">Нийт {orderResult.total.toLocaleString()}₮</p>
+                <p className="text-muted-foreground text-sm">Нийт {orderResult.total.toLocaleString()}₮</p>
               </div>
               <div className={`px-3 py-1.5 rounded-full text-sm font-medium ${isPaid ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}`}>
                 {isPaid ? 'Төлөгдлөө' : 'Төлбөр төлөгдөнгүй'}
@@ -135,11 +135,11 @@ export default function CheckoutPage() {
 
             {!isPaid && (
               <>
-                <p className="text-sm font-medium text-gray-700 mb-2 text-center">QR кодыг уншуулж төлнө үү</p>
+                <p className="text-sm font-medium text-foreground mb-2 text-center">QR кодыг уншуулж төлнө үү</p>
                 <div className="mb-6">
                   <QPayQrDisplay qrImage={qpay.qr_image} qrCode={qpay.qr_code} size={220} />
                 </div>
-                <p className="text-sm font-medium text-gray-700 mb-3">Эсвэл банк / аппаа сонгоно уу:</p>
+                <p className="text-sm font-medium text-foreground mb-3">Эсвэл банк / аппаа сонгоно уу:</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
                   {qpay.urls?.slice(0, 12).map((u, idx) => (
                     <a
@@ -147,18 +147,18 @@ export default function CheckoutPage() {
                       href={u.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex flex-col items-center gap-2 p-3 rounded-lg border border-gray-200 hover:border-accent hover:bg-accent/5 transition-colors"
+                      className="flex flex-col items-center gap-2 p-3 rounded-lg border border-border hover:border-accent hover:bg-accent/5 transition-colors"
                     >
                       {u.logo ? (
                         <img src={u.logo} alt={u.name} className="size-10 object-contain rounded" />
                       ) : (
-                        <Smartphone className="size-10 text-gray-400" />
+                        <Smartphone className="size-10 text-muted-foreground" />
                       )}
                       <span className="text-xs font-medium text-center line-clamp-2">{u.name}</span>
                     </a>
                   ))}
                 </div>
-                <p className="text-xs text-gray-500 text-center mb-6">
+                <p className="text-xs text-muted-foreground text-center mb-6">
                   Төлбөр төлсний дараа захиалга автоматаар «Төлөгдлөө» болно. Асуудал гарвал бид таньтай холбогдоно.
                 </p>
               </>
@@ -171,10 +171,10 @@ export default function CheckoutPage() {
             )}
 
             <div className="mt-6 flex gap-3">
-              <Link href="/products" className="flex-1 text-center py-3 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition">
+              <Link href="/products" className="flex-1 text-center py-3 rounded-lg border border-border text-foreground font-medium hover:bg-secondary transition">
                 Дэлгэрэнгүй үргэлжлүүлэх
               </Link>
-              <Link href="/" className="flex-1 text-center py-3 rounded-lg bg-black text-white font-medium hover:bg-black/90 transition">
+              <Link href="/" className="flex-1 text-center py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition">
                 Нүүр хуудас
               </Link>
             </div>
@@ -185,10 +185,10 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-12 pb-12 animate-in fade-in duration-500">
+    <div className="min-h-screen bg-background pt-12 pb-12 animate-in fade-in duration-500">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         <div className="mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-black transition-colors mb-4">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-4">
             <ArrowLeft className="size-4" />
             Дэлгүүр лүү буцах
           </Link>
@@ -198,86 +198,86 @@ export default function CheckoutPage() {
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             <div className="lg:col-span-2 space-y-8">
-              <section className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+              <section className="bg-card p-6 rounded-lg shadow-sm border border-border">
                 <h2 className="text-lg font-medium mb-4 flex items-center gap-2">
-                  <span className="flex items-center justify-center size-6 bg-black text-white rounded-full text-xs">1</span>
+                  <span className="flex items-center justify-center size-6 bg-primary text-primary-foreground rounded-full text-xs">1</span>
                   Холбоо барих мэдээлэл
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-gray-700">Нэр *</label>
+                    <label className="text-sm font-medium text-foreground">Нэр *</label>
                     <input
                       type="text"
                       required
                       value={customerName}
                       onChange={(e) => setCustomerName(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded border border-gray-300 focus:outline-none focus:border-black transition-colors"
+                      className="w-full px-4 py-2.5 rounded border border-border bg-input-background focus:outline-none focus:border-ring transition-colors text-foreground"
                       placeholder="Таны нэр"
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-gray-700">Утасны дугаар *</label>
+                    <label className="text-sm font-medium text-foreground">Утасны дугаар *</label>
                     <input
                       type="tel"
                       required
                       maxLength={8}
                       value={customerPhone}
                       onChange={(e) => setCustomerPhone(e.target.value.replace(/\D/g, ''))}
-                      className="w-full px-4 py-2.5 rounded border border-gray-300 focus:outline-none focus:border-black transition-colors"
+                      className="w-full px-4 py-2.5 rounded border border-border bg-input-background focus:outline-none focus:border-ring transition-colors text-foreground"
                       placeholder="88888888"
                     />
                   </div>
                   <div className="space-y-1.5 md:col-span-2">
-                    <label className="text-sm font-medium text-gray-700">Код хүлээн авах имэйл хаяг *</label>
+                    <label className="text-sm font-medium text-foreground">Код хүлээн авах имэйл хаяг *</label>
                     <input
                       type="email"
                       required
                       value={customerEmail}
                       onChange={(e) => setCustomerEmail(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded border border-gray-300 focus:outline-none focus:border-black transition-colors"
+                      className="w-full px-4 py-2.5 rounded border border-border bg-input-background focus:outline-none focus:border-ring transition-colors text-foreground"
                       placeholder="name@example.com"
                     />
-                    <p className="text-xs text-gray-500">Төлбөр төлсний дараа лиценз/код энэ имэйл хаяг руу илгээгдэнэ.</p>
+                    <p className="text-xs text-muted-foreground">Төлбөр төлсний дараа лиценз/код энэ имэйл хаяг руу илгээгдэнэ.</p>
                   </div>
                 </div>
               </section>
 
-              <section className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+              <section className="bg-card p-6 rounded-lg shadow-sm border border-border">
                 <h2 className="text-lg font-medium mb-2 flex items-center gap-2">
-                  <span className="flex items-center justify-center size-6 bg-black text-white rounded-full text-xs">2</span>
+                  <span className="flex items-center justify-center size-6 bg-primary text-primary-foreground rounded-full text-xs">2</span>
                   Хүргэлт
                 </h2>
-                <p className="text-sm text-gray-600">Дижитал бүтээгдэхүүн тул бүх захиалга имэйлээр илгээгдэнэ. Дээрх имэйл хаяг руу лиценз/код очно.</p>
+                <p className="text-sm text-muted-foreground">Дижитал бүтээгдэхүүн тул бүх захиалга имэйлээр илгээгдэнэ. Дээрх имэйл хаяг руу лиценз/код очно.</p>
               </section>
             </div>
 
             <div className="lg:col-span-1">
-              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 sticky top-24">
+              <div className="bg-card p-6 rounded-lg shadow-sm border border-border sticky top-24">
                 <h2 className="text-lg font-medium mb-6">Захиалгын мэдээлэл</h2>
                 <div className="space-y-4 mb-6 max-h-[300px] overflow-y-auto custom-scrollbar">
                   {items.length === 0 ? (
-                    <p className="text-gray-500 text-sm text-center py-4">Сагс хоосон байна</p>
+                    <p className="text-muted-foreground text-sm text-center py-4">Сагс хоосон байна</p>
                   ) : (
                     items.map((item) => (
                       <div key={item.id} className="flex gap-3">
-                        <div className="size-16 bg-gray-100 rounded overflow-hidden shrink-0">
+                        <div className="size-16 bg-muted rounded overflow-hidden shrink-0">
                           <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <h4 className="text-sm font-medium truncate">{item.name}</h4>
-                          <p className="text-sm text-gray-500">{item.quantity} x {item.price.toLocaleString()}₮</p>
+                          <p className="text-sm text-muted-foreground">{item.quantity} x {item.price.toLocaleString()}₮</p>
                         </div>
                         <div className="text-sm font-medium">{(item.price * item.quantity).toLocaleString()}₮</div>
                       </div>
                     ))
                   )}
                 </div>
-                <div className="border-t border-gray-200 pt-4 space-y-3 mb-4">
-                  <div className="flex items-center justify-between text-gray-600">
+                <div className="border-t border-border pt-4 space-y-3 mb-4">
+                  <div className="flex items-center justify-between text-muted-foreground">
                     <span>Барааны үнэ</span>
                     <span>{totalPrice.toLocaleString()}₮</span>
                   </div>
-                  <div className="flex items-center justify-between text-gray-500">
+                  <div className="flex items-center justify-between text-muted-foreground">
                     <span>Хүргэлт</span>
                     <span className="text-sm">Имэйлээр (нэмэлт төлбөргүй)</span>
                   </div>
@@ -287,7 +287,7 @@ export default function CheckoutPage() {
                       <span>-{discountAmount.toLocaleString()}₮</span>
                     </div>
                   )}
-                  <div className="flex items-center justify-between font-bold text-lg pt-2 border-t border-dashed border-gray-200">
+                  <div className="flex items-center justify-between font-bold text-lg pt-2 border-t border-dashed border-border">
                     <span>Нийт төлөх</span>
                     <span className="text-accent">{grandTotal.toLocaleString()}₮</span>
                   </div>
@@ -315,7 +315,7 @@ export default function CheckoutPage() {
                         value={promoInput}
                         onChange={(e) => setPromoInput(e.target.value)}
                         placeholder="Промо код оруулах"
-                        className="flex-1 px-3 py-2.5 rounded border border-gray-300 text-sm focus:outline-none focus:border-black transition-colors"
+                        className="flex-1 px-3 py-2.5 rounded border border-border bg-input-background text-foreground text-sm focus:outline-none focus:border-ring transition-colors"
                       />
                       <button
                         type="button"
@@ -340,7 +340,7 @@ export default function CheckoutPage() {
                             setPromoLoading(false);
                           }
                         }}
-                        className="px-4 py-2.5 rounded border border-gray-300 text-sm font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="px-4 py-2.5 rounded border border-border text-sm font-medium hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                       >
                         {promoLoading ? '...' : 'Хэрэглэх'}
                       </button>
@@ -350,11 +350,11 @@ export default function CheckoutPage() {
                 <button
                   type="submit"
                   disabled={submitting || items.length === 0}
-                  className="w-full py-4 bg-black text-white font-bold uppercase tracking-wider rounded hover:bg-black/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-4 bg-primary text-primary-foreground font-bold uppercase tracking-wider rounded hover:opacity-90 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {submitting ? <Loader2 className="size-5 animate-spin" /> : <><span>Төлбөр төлөх (QPay)</span><ChevronRight className="size-4" /></>}
                 </button>
-                <p className="text-xs text-center text-gray-500 mt-4">Захиалах товчийг дарснаар QPay төлбөрийн цэс гарна.</p>
+                <p className="text-xs text-center text-muted-foreground mt-4">Захиалах товчийг дарснаар QPay төлбөрийн цэс гарна.</p>
               </div>
             </div>
           </div>

@@ -49,14 +49,14 @@ export function OccasionsGrid() {
 
   if (isLoading) {
     return (
-      <section className="pt-2 pb-6 md:pt-4 md:pb-10 bg-[#FBFBFB] relative z-10 min-h-[300px] flex items-center justify-center">
-         <Loader2 className="size-8 animate-spin text-gray-400" />
+      <section className="pt-2 pb-6 md:pt-4 md:pb-10 bg-muted/30 relative z-10 min-h-[300px] flex items-center justify-center">
+         <Loader2 className="size-8 animate-spin text-muted-foreground" />
       </section>
     );
   }
 
   return (
-    <section className="pt-2 pb-6 md:pt-4 md:pb-10 bg-[#FBFBFB] relative z-10">
+    <section className="pt-2 pb-6 md:pt-4 md:pb-10 bg-muted/30 relative z-10">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         <motion.div 
           variants={container}
@@ -69,7 +69,7 @@ export function OccasionsGrid() {
             <Link key={occasion.id} href="/products">
               <motion.div
                 variants={item}
-                className="min-w-[140px] w-[40%] sm:w-[30%] md:w-auto md:min-w-0 flex-shrink-0 snap-start group relative overflow-hidden rounded-lg bg-white shadow-sm hover:shadow-lg transition-all duration-500 cursor-pointer"
+                className="min-w-[140px] w-[40%] sm:w-[30%] md:w-auto md:min-w-0 flex-shrink-0 snap-start group relative overflow-hidden rounded-lg bg-card border border-border shadow-sm hover:shadow-lg transition-all duration-500 cursor-pointer"
                 title={occasion.name}
               >
               <div className="aspect-[4/5] overflow-hidden relative">
@@ -80,7 +80,7 @@ export function OccasionsGrid() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">
+                  <div className="w-full h-full bg-muted flex items-center justify-center text-muted-foreground">
                     No Image
                   </div>
                 )}

@@ -89,16 +89,16 @@ export function HeroSection() {
 
   if (isLoading) {
     return (
-      <section className="pt-6 pb-2 md:pt-8 md:pb-4 bg-white relative z-0 h-[450px]">
+      <section className="pt-6 pb-2 md:pt-8 md:pb-4 bg-background relative z-0 h-[450px]">
         <div className="max-w-[1440px] mx-auto px-4 md:px-8 h-full flex items-center justify-center">
-          <Loader2 className="size-8 animate-spin text-gray-400" />
+          <Loader2 className="size-8 animate-spin text-muted-foreground" />
         </div>
       </section>
     );
   }
 
   return (
-    <section className="pt-6 pb-2 md:pt-8 md:pb-4 bg-white relative z-0">
+    <section className="pt-6 pb-2 md:pt-8 md:pb-4 bg-background relative z-0">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         {/* Responsive Grid */}
         <div className="grid lg:grid-cols-3 gap-4 lg:gap-6">

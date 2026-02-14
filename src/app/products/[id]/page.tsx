@@ -167,14 +167,14 @@ export default function ProductDetailPage() {
 
   if (isLoading || !product) {
     return (
-        <div className="bg-white min-h-screen flex items-center justify-center">
-             <Loader2 className="size-10 animate-spin text-gray-300" />
+        <div className="bg-background min-h-screen flex items-center justify-center">
+             <Loader2 className="size-10 animate-spin text-muted-foreground" />
         </div>
     );
   }
 
   return (
-    <div className="bg-white min-h-screen pb-32 md:pb-20 animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <div className="bg-background min-h-screen pb-32 md:pb-20 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <DirectCheckoutModal
         isOpen={isCheckoutModalOpen}
         onClose={() => setIsCheckoutModalOpen(false)}
@@ -201,11 +201,11 @@ export default function ProductDetailPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white z-[70] rounded-xl shadow-2xl overflow-hidden p-6"
+              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-card border border-border z-[70] rounded-xl shadow-2xl overflow-hidden p-6"
             >
                 <div className="flex items-center justify-between mb-6">
                     <h3 className="text-xl font-serif font-bold">Дэлгүүрийн хаяг</h3>
-                    <button onClick={() => setIsStoreInfoOpen(false)} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                    <button onClick={() => setIsStoreInfoOpen(false)} className="p-2 hover:bg-secondary rounded-full transition-colors">
                         <X className="size-5" />
                     </button>
                 </div>
@@ -217,7 +217,7 @@ export default function ProductDetailPage() {
                         </div>
                         <div>
                             <h4 className="font-medium mb-2">Хаяг</h4>
-                            <p className="text-gray-600 text-sm leading-relaxed">
+                            <p className="text-muted-foreground text-sm leading-relaxed">
                               Улаанбаатар хот, Сүхбаатар дүүрэг, 1-р хороо, Seoul Business Center, 6-р давхар, 605 тоот оффис, Ulaanbaatar, Mongolia, 14446
                             </p>
                         </div>
@@ -229,7 +229,7 @@ export default function ProductDetailPage() {
                         </div>
                         <div>
                             <h4 className="font-medium mb-1">Цагийн хуваарь</h4>
-                            <p className="text-gray-600 text-sm">Өдөр бүр: 09:00 - 21:00</p>
+                            <p className="text-muted-foreground text-sm">Өдөр бүр: 09:00 - 21:00</p>
                         </div>
                     </div>
 
@@ -239,7 +239,7 @@ export default function ProductDetailPage() {
                         </div>
                         <div>
                             <h4 className="font-medium mb-1">Холбоо барих</h4>
-                            <a href="tel:76073333" className="text-gray-600 text-sm hover:text-accent transition-colors">7607-3333</a>
+                            <a href="tel:76073333" className="text-muted-foreground text-sm hover:text-accent transition-colors">7607-3333</a>
                         </div>
                     </div>
                 </div>
@@ -263,9 +263,9 @@ export default function ProductDetailPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg max-h-[85vh] bg-white z-[70] rounded-xl shadow-2xl overflow-hidden flex flex-col"
+              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg max-h-[85vh] bg-card border border-border z-[70] rounded-xl shadow-2xl overflow-hidden flex flex-col"
             >
-              <div className="flex items-center justify-between p-6 border-b border-gray-100 shrink-0">
+              <div className="flex items-center justify-between p-6 border-b border-border shrink-0">
                 <h3 className="text-xl font-serif font-bold flex items-center gap-2">
                   <Truck className="size-5 text-accent" />
                   Илгээлт & Буцаалт
@@ -278,13 +278,13 @@ export default function ProductDetailPage() {
                   <X className="size-5" />
                 </button>
               </div>
-              <div className="p-6 overflow-y-auto text-gray-600 text-sm space-y-6">
+              <div className="p-6 overflow-y-auto text-muted-foreground text-sm space-y-6">
                 <section>
-                  <h4 className="font-semibold text-gray-900 mb-2">Хүргэлтийн нөхцөл</h4>
+                  <h4 className="font-semibold text-foreground mb-2">Хүргэлтийн нөхцөл</h4>
                   <p className="mb-3">Дижитал бүтээгдэхүүн тул бүх захиалга <strong>имэйлээр</strong> илгээгдэнэ. Төлбөр баталгаажсаны дараа захиалга өгөхдөө таны оруулсан имэйл хаяг руу лиценз/код илгээгдэнэ. Нэмэлт хүргэлтийн төлбөр байхгүй.</p>
                 </section>
                 <section>
-                  <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                  <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                     <RefreshCw className="size-4 text-accent" />
                     Буцаалтын нөхцөл
                   </h4>
@@ -299,7 +299,7 @@ export default function ProductDetailPage() {
       </AnimatePresence>
 
       {/* Navigation Bar for Detail Page */}
-      <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 px-4 py-4 md:px-8">
+      <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border px-4 py-4 md:px-8">
         <div className="max-w-[1440px] mx-auto flex items-center gap-4">
           <Link 
             href="/"
@@ -308,8 +308,8 @@ export default function ProductDetailPage() {
             <ArrowLeft className="size-4" />
             Буцах
           </Link>
-          <div className="h-4 w-px bg-gray-200" />
-          <nav className="text-sm text-gray-500 hidden md:block">
+          <div className="h-4 w-px bg-border" />
+          <nav className="text-sm text-muted-foreground hidden md:block">
             <Link href="/" className="hover:text-black">Нүүр</Link>
             <span className="mx-2">/</span>
             <Link href="/products" className="hover:text-black">Бүтээгдэхүүн</Link>
@@ -330,7 +330,7 @@ export default function ProductDetailPage() {
                   key={idx}
                   onClick={() => setSelectedImage(idx)}
                   className={`relative aspect-square lg:w-full w-20 shrink-0 rounded-md overflow-hidden border-2 transition-all ${
-                    selectedImage === idx ? 'border-accent ring-2 ring-accent/20' : 'border-transparent hover:border-gray-200'
+                    selectedImage === idx ? 'border-accent ring-2 ring-accent/20' : 'border-transparent hover:border-border'
                   }`}
                 >
                   <img src={img} alt="" className="w-full h-full object-cover" />
@@ -340,7 +340,7 @@ export default function ProductDetailPage() {
 
             {/* Main Image — дарж fullscreen слайдер нээнэ */}
             <div
-              className="flex-1 aspect-[4/5] max-h-[70vh] min-h-[280px] bg-gray-50 rounded-lg overflow-hidden relative group order-1 lg:order-2 cursor-zoom-in"
+              className="flex-1 aspect-[4/5] max-h-[70vh] min-h-[280px] bg-muted rounded-lg overflow-hidden relative group order-1 lg:order-2 cursor-zoom-in"
               onClick={() => setIsFullscreenGalleryOpen(true)}
               role="button"
               tabIndex={0}
@@ -360,18 +360,18 @@ export default function ProductDetailPage() {
                 <button
                   type="button"
                   onClick={(e) => { e.stopPropagation(); setIsFullscreenGalleryOpen(true); }}
-                  className="p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors"
+                  className="p-2 bg-card rounded-full shadow-md hover:bg-secondary transition-colors border border-border"
                   title="Томруулж үзэх"
                 >
-                  <Maximize2 className="size-4 text-gray-600" />
+                  <Maximize2 className="size-4 text-muted-foreground" />
                 </button>
                 <button
                   type="button"
                   onClick={(e) => { e.stopPropagation(); handleShare(); }}
-                  className="p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors"
+                  className="p-2 bg-card rounded-full shadow-md hover:bg-secondary transition-colors border border-border"
                   title="Хуваалцах"
                 >
-                  <Share2 className="size-4 text-gray-600" />
+                  <Share2 className="size-4 text-muted-foreground" />
                 </button>
                 <button 
                   type="button"
@@ -382,7 +382,7 @@ export default function ProductDetailPage() {
                   className={`p-2 rounded-full shadow-md transition-colors ${
                     isFavorite(product.id) 
                         ? 'bg-destructive text-white' 
-                        : 'bg-white hover:bg-gray-50 text-gray-600'
+                        : 'bg-card hover:bg-secondary text-muted-foreground border border-border'
                   }`}
                   title={isFavorite(product.id) ? "Хүслийн жагсаалтаас хасах" : "Хүслийн жагсаалтад нэмэх"}
                 >
@@ -439,7 +439,7 @@ export default function ProductDetailPage() {
                         type="button"
                         onClick={() => setSelectedImage(idx)}
                         className={`w-2 h-2 rounded-full transition-colors ${
-                          selectedImage === idx ? 'bg-white' : 'bg-white/40 hover:bg-white/60'
+                          selectedImage === idx ? 'bg-background' : 'bg-background/40 hover:bg-background/60'
                         }`}
                         aria-label={`Зураг ${idx + 1}`}
                       />
@@ -462,32 +462,32 @@ export default function ProductDetailPage() {
               
               <div className="flex items-end gap-3 mb-6 flex-wrap">
                 {(product.isSoldOut ?? (typeof product.stock === 'number' && product.stock <= 0)) && (
-                  <span className="bg-gray-700 text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">
+                  <span className="bg-muted-foreground text-background px-3 py-1 rounded text-sm font-bold uppercase tracking-wider">
                     Дууссан
                   </span>
                 )}
                 <span className="text-3xl font-bold text-accent">{product.price.toLocaleString()}₮</span>
                 {(product.discount != null && product.discount > 0) && (
                   <>
-                    <span className="text-lg text-gray-400 line-through mb-1">{product.originalPrice.toLocaleString()}₮</span>
+                    <span className="text-lg text-muted-foreground line-through mb-1">{product.originalPrice.toLocaleString()}₮</span>
                     <span className="mb-1 text-xs font-bold text-white bg-destructive px-2 py-0.5 rounded">-{product.discount}%</span>
                   </>
                 )}
               </div>
 
               <div
-                className="text-gray-600 leading-relaxed mb-8 [&_p]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_h2]:font-semibold [&_h2]:mt-4 [&_h3]:font-medium [&_h3]:mt-3 [&_a]:text-accent [&_a]:underline [&_strong]:font-semibold"
+                className="text-muted-foreground leading-relaxed mb-8 [&_p]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_h2]:font-semibold [&_h2]:mt-4 [&_h3]:font-medium [&_a]:text-accent [&_a]:underline [&_strong]:font-semibold"
                 dangerouslySetInnerHTML={{ __html: product.description || '' }}
               />
 
               {/* Actions */}
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center border border-gray-200 rounded-md">
+                  <div className="flex items-center border border-border rounded-md bg-input-background">
                     <button 
                       onClick={decrementQuantity}
                       disabled={soldOut}
-                      className="p-3 hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="p-3 hover:bg-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <Minus className="size-4" />
                     </button>
@@ -495,12 +495,12 @@ export default function ProductDetailPage() {
                     <button 
                       onClick={incrementQuantity}
                       disabled={soldOut}
-                      className="p-3 hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="p-3 hover:bg-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <Plus className="size-4" />
                     </button>
                   </div>
-                  <div className="text-sm font-medium text-gray-900">
+                  <div className="text-sm font-medium text-foreground">
                     Нийт дүн: <span className="text-accent text-lg ml-1">{(product.price * quantity).toLocaleString()}₮</span>
                   </div>
                 </div>
@@ -509,7 +509,7 @@ export default function ProductDetailPage() {
                   <button 
                     onClick={handleAddToCart}
                     disabled={soldOut}
-                    className="flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-accent text-accent font-bold uppercase tracking-wider rounded hover:bg-accent hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-400 disabled:hover:bg-transparent disabled:hover:text-gray-400"
+                    className="flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-accent text-accent font-bold uppercase tracking-wider rounded hover:bg-accent hover:text-accent-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:border-muted-foreground disabled:text-muted-foreground disabled:hover:bg-transparent disabled:hover:text-muted-foreground"
                   >
                     <ShoppingCart className="size-4" />
                     Сагсанд хийх
@@ -517,7 +517,7 @@ export default function ProductDetailPage() {
                   <button 
                     onClick={handleBuyNow}
                     disabled={soldOut}
-                    className="flex items-center justify-center gap-2 px-8 py-3.5 bg-accent text-white font-bold uppercase tracking-wider rounded hover:bg-accent/90 transition-colors shadow-lg shadow-accent/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-300"
+                    className="flex items-center justify-center gap-2 px-8 py-3.5 bg-accent text-accent-foreground font-bold uppercase tracking-wider rounded hover:bg-accent/90 transition-colors shadow-lg shadow-accent/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-muted"
                   >
                     Худалдаж авах
                   </button>
@@ -530,9 +530,9 @@ export default function ProductDetailPage() {
               </div>
 
               {/* Additional Info Block */}
-              <div className="border-t border-gray-200 pt-6 space-y-6">
+              <div className="border-t border-border pt-6 space-y-6">
                 {/* Top Links */}
-                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-gray-600">
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-muted-foreground">
                    <button
                      type="button"
                      onClick={() => setIsDeliveryModalOpen(true)}
@@ -540,11 +540,11 @@ export default function ProductDetailPage() {
                    >
                      <Truck className="size-4" /> <span>Илгээлт & Буцаалт</span>
                    </button>
-                   <div className="h-4 w-px bg-gray-300 hidden sm:block"></div>
+                   <div className="h-4 w-px bg-border hidden sm:block"></div>
                    <button className="flex items-center gap-2 hover:text-accent transition-colors">
                      <HelpCircle className="size-4" /> <span>Асуулт асуух</span>
                    </button>
-                   <div className="h-4 w-px bg-gray-300 hidden sm:block"></div>
+                   <div className="h-4 w-px bg-border hidden sm:block"></div>
                    <button
                      type="button"
                      onClick={handleShare}
@@ -558,11 +558,11 @@ export default function ProductDetailPage() {
                 <div className="space-y-3 text-sm text-gray-600">
                   <div className="flex items-start gap-3">
                     <Clock className="size-4 mt-0.5" />
-                    <span><span className="font-medium text-gray-900">Илгээлт:</span> Имэйлээр илгээгдэнэ (нэмэлт төлбөргүй). Захиалга өгөхдөө оруулсан имэйл руу код очно.</span>
+                    <span><span className="font-medium text-foreground">Илгээлт:</span> Имэйлээр илгээгдэнэ (нэмэлт төлбөргүй). Захиалга өгөхдөө оруулсан имэйл руу код очно.</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <RefreshCw className="size-4 mt-0.5" />
-                     <span><span className="font-medium text-gray-900">Буцаалт:</span> Дижитал бүтээгдэхүүний буцаалтын нөхцөл бүтээгдэхүүнээс хамаарна.</span>
+                     <span><span className="font-medium text-foreground">Буцаалт:</span> Дижитал бүтээгдэхүүний буцаалтын нөхцөл бүтээгдэхүүнээс хамаарна.</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <MapPin className="size-4 mt-0.5" />
@@ -573,33 +573,33 @@ export default function ProductDetailPage() {
                 {/* Meta Info */}
                 <div className="border-t border-gray-200 pt-6 space-y-2 text-sm">
                   <div className="grid grid-cols-[120px_1fr] gap-2">
-                    <span className="text-gray-500">Бүтээгдэхүүний код:</span>
-                    <span className="font-medium text-gray-900">{product.sku || '—'}</span>
+                    <span className="text-muted-foreground">Бүтээгдэхүүний код:</span>
+                    <span className="font-medium text-foreground">{product.sku || '—'}</span>
                   </div>
                   <div className="grid grid-cols-[120px_1fr] gap-2">
-                    <span className="text-gray-500">Ангилал:</span>
-                    <span className="font-medium text-gray-900">{product.category || '—'}</span>
+                    <span className="text-muted-foreground">Ангилал:</span>
+                    <span className="font-medium text-foreground">{product.category || '—'}</span>
                   </div>
                   <div className="grid grid-cols-[120px_1fr] gap-2">
-                    <span className="text-gray-500">Тоо ширхэг:</span>
-                    <span className="font-medium text-gray-900">{product.details?.count || '—'}</span>
+                    <span className="text-muted-foreground">Тоо ширхэг:</span>
+                    <span className="font-medium text-foreground">{product.details?.count || '—'}</span>
                   </div>
                   <div className="grid grid-cols-[120px_1fr] gap-2">
-                    <span className="text-gray-500">Баглаа боодол:</span>
-                    <span className="font-medium text-gray-900">{product.details?.packaging || '—'}</span>
+                    <span className="text-muted-foreground">Баглаа боодол:</span>
+                    <span className="font-medium text-foreground">{product.details?.packaging || '—'}</span>
                   </div>
                   <div className="grid grid-cols-[120px_1fr] gap-2">
-                    <span className="text-gray-500">Өндөр:</span>
-                    <span className="font-medium text-gray-900">{product.details?.height || '—'}</span>
+                    <span className="text-muted-foreground">Өндөр:</span>
+                    <span className="font-medium text-foreground">{product.details?.height || '—'}</span>
                   </div>
                 </div>
 
                 {/* Safe Checkout */}
-                <div className="border-t border-gray-200 pt-6">
+                <div className="border-t border-border pt-6">
                   <h4 className="font-medium text-sm mb-3">Төлбөрийн найдвартай байдал:</h4>
                   <div className="flex flex-wrap gap-2">
                     {['Visa', 'Mastercard', 'QPay', 'SocialPay', 'MonPay'].map(method => (
-                      <div key={method} className="h-8 px-3 border border-gray-200 rounded bg-gray-50 text-xs font-bold text-gray-600 flex items-center justify-center select-none">
+                      <div key={method} className="h-8 px-3 border border-border rounded bg-muted text-xs font-bold text-muted-foreground flex items-center justify-center select-none">
                         {method}
                       </div>
                     ))}
@@ -612,7 +612,7 @@ export default function ProductDetailPage() {
 
         {/* Tabs Section */}
         <div className="mt-16 md:mt-24 mb-20">
-          <div className="flex items-center gap-8 border-b border-gray-200 mb-8 overflow-x-auto">
+          <div className="flex items-center gap-8 border-b border-border mb-8 overflow-x-auto">
             {['description', 'delivery'].map((tab) => (
               <button
                 key={tab}
@@ -620,7 +620,7 @@ export default function ProductDetailPage() {
                 className={`pb-4 text-sm font-bold uppercase tracking-wider transition-colors whitespace-nowrap ${
                   activeTab === tab
                     ? 'text-accent border-b-2 border-accent'
-                    : 'text-gray-400 hover:text-gray-900'
+                    : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {tab === 'description' && 'Дэлгэрэнгүй'}
@@ -629,7 +629,7 @@ export default function ProductDetailPage() {
             ))}
           </div>
 
-          <div className="min-h-[200px] text-gray-600 leading-relaxed max-w-3xl">
+          <div className="min-h-[200px] text-muted-foreground leading-relaxed max-w-3xl">
             {activeTab === 'description' && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
                 <div
@@ -654,7 +654,7 @@ export default function ProductDetailPage() {
         </div>
 
         {/* Similar Products Section */}
-        <div className="border-t border-gray-200 pt-20">
+        <div className="border-t border-border pt-20">
           <div className="flex items-center justify-between mb-10">
             <h2 className="text-2xl md:text-3xl font-serif font-bold">Төстэй бүтээгдэхүүнүүд</h2>
             <Link 
@@ -685,14 +685,14 @@ export default function ProductDetailPage() {
                   )}
                 </div>
                 <div>
-                  <div className="text-xs text-gray-500 mb-1">{item.category}</div>
+                  <div className="text-xs text-muted-foreground mb-1">{item.category}</div>
                   <h3 className="font-medium text-sm leading-tight mb-2 line-clamp-2 group-hover:text-accent transition-colors min-h-[2.5em]">
                     {item.name}
                   </h3>
                   <div className="flex items-baseline gap-2">
                     <span className="font-bold">{item.price.toLocaleString()}₮</span>
                     {item.discount && (
-                      <span className="text-xs text-gray-400 line-through">
+                      <span className="text-xs text-muted-foreground line-through">
                         {Math.round(item.price * (100 / (100 - item.discount))).toLocaleString()}₮
                       </span>
                     )}
@@ -705,19 +705,19 @@ export default function ProductDetailPage() {
       </div>
       
       {/* Mobile Sticky Action Bar */}
-      <div className="fixed bottom-0 inset-x-0 z-50 bg-white border-t border-gray-200 p-4 md:hidden safe-area-bottom shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+      <div className="fixed bottom-0 inset-x-0 z-50 bg-background border-t border-border p-4 md:hidden safe-area-bottom shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
         <div className="flex gap-3">
           <button 
             onClick={handleAddToCart}
             disabled={soldOut}
-            className="flex-1 flex items-center justify-center gap-2 h-12 border border-accent text-accent font-bold rounded-lg hover:bg-accent/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-400"
+            className="flex-1 flex items-center justify-center gap-2 h-12 border border-accent text-accent font-bold rounded-lg hover:bg-accent/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:border-muted disabled:text-muted-foreground"
           >
             <ShoppingCart className="size-5" />
           </button>
           <button 
             onClick={handleBuyNow}
             disabled={soldOut}
-            className="flex-[3] h-12 bg-accent text-white font-bold rounded-lg shadow-lg shadow-accent/20 hover:bg-accent/90 transition-colors uppercase tracking-wide text-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-300"
+            className="flex-[3] h-12 bg-accent text-accent-foreground font-bold rounded-lg shadow-lg shadow-accent/20 hover:bg-accent/90 transition-colors uppercase tracking-wide text-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-muted"
           >
             Худалдаж авах
           </button>

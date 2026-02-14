@@ -62,7 +62,7 @@ export function ProductGrid({
   };
 
   return (
-    <section className="py-6 md:py-12 bg-white">
+    <section className="py-6 md:py-12 bg-background">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         <div className="flex items-end justify-between mb-8 md:mb-10 pb-4 border-b border-border/50">
           <div>
@@ -92,7 +92,7 @@ export function ProductGrid({
               className="group cursor-pointer"
             >
               {/* Product Image */}
-              <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#F5F5F5] mb-4">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-muted mb-4">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -107,8 +107,8 @@ export function ProductGrid({
                   }}
                   className={`absolute top-3 right-3 p-2 rounded-full transition-all z-20 ${
                     isFavorite(product.id) 
-                      ? 'bg-destructive text-white' 
-                      : 'bg-white/80 backdrop-blur text-gray-500 hover:text-destructive'
+                      ? 'bg-destructive text-destructive-foreground' 
+                      : 'bg-background/80 backdrop-blur text-muted-foreground hover:text-destructive'
                   }`}
                   title={isFavorite(product.id) ? "Хүслийн жагсаалтаас хасах" : "Хүслийн жагсаалтад нэмэх"}
                 >
@@ -123,7 +123,7 @@ export function ProductGrid({
                     </span>
                   )}
                   {product.discount && (
-                    <span className="bg-destructive text-white px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
+                    <span className="bg-destructive text-destructive-foreground px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
                       -{product.discount}%
                     </span>
                   )}
@@ -133,7 +133,7 @@ export function ProductGrid({
                     </span>
                   )}
                    {product.deliveryDate && (
-                    <span className="bg-accent text-white px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider shadow-sm">
+                    <span className="bg-accent text-accent-foreground px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider shadow-sm">
                       {product.deliveryDate}-нд ирнэ
                     </span>
                   )}
@@ -169,7 +169,7 @@ export function ProductGrid({
         <div className={`mt-10 text-center ${showViewAllBelow ? '' : 'md:hidden'}`}>
           <Link 
             href="/products"
-            className="inline-block px-8 py-3 border border-border rounded-full hover:border-black transition-colors font-medium text-sm"
+            className="inline-block px-8 py-3 border border-border rounded-full hover:border-foreground transition-colors font-medium text-sm"
           >
             {viewAllLabel}
           </Link>

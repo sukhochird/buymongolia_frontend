@@ -52,8 +52,8 @@ export function RecentProductsSection() {
 
   if (isLoading) {
     return (
-      <section className="py-6 md:py-12 bg-white min-h-[400px] flex items-center justify-center">
-        <Loader2 className="size-10 animate-spin text-gray-300" />
+      <section className="py-6 md:py-12 bg-background min-h-[400px] flex items-center justify-center">
+        <Loader2 className="size-10 animate-spin text-muted-foreground" />
       </section>
     );
   }

@@ -78,14 +78,14 @@ export function FlowerTypesNav({ activeType: controlledActive, onActiveTypeChang
 
   if (isLoading) {
     return (
-      <section className="bg-white/80 backdrop-blur-xl border-y border-border/40 sticky top-[73px] md:top-[80px] z-40 h-[60px] flex items-center justify-center">
-        <Loader2 className="size-5 animate-spin text-gray-400" />
+      <section className="bg-background/80 backdrop-blur-xl border-y border-border/40 sticky top-[73px] md:top-[80px] z-40 h-[60px] flex items-center justify-center">
+        <Loader2 className="size-5 animate-spin text-muted-foreground" />
       </section>
     );
   }
 
   return (
-    <section className="bg-white/80 backdrop-blur-xl border-y border-border/40 sticky top-[73px] md:top-[80px] z-40 transition-all duration-300">
+    <section className="bg-background/80 backdrop-blur-xl border-y border-border/40 sticky top-[73px] md:top-[80px] z-40 transition-all duration-300">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         <div className="flex items-center gap-4 py-3">
           
@@ -102,7 +102,7 @@ export function FlowerTypesNav({ activeType: controlledActive, onActiveTypeChang
              {/* Left Arrow */}
             <button 
               onClick={() => scroll('left')}
-              className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white shadow-sm rounded-full border border-border transition-all ${
+              className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-card shadow-sm rounded-full border border-border transition-all ${
                 showLeftArrow ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'
               }`}
             >
@@ -118,7 +118,7 @@ export function FlowerTypesNav({ activeType: controlledActive, onActiveTypeChang
                 onClick={() => setActiveType('all')}
                 className={`px-4 py-1.5 rounded-full whitespace-nowrap text-sm font-medium transition-all duration-200 border ${
                   activeType === 'all'
-                    ? 'bg-primary text-white border-primary shadow-sm'
+                    ? 'bg-primary text-primary-foreground border-primary shadow-sm'
                     : 'bg-transparent text-muted-foreground border-transparent hover:bg-secondary hover:text-foreground'
                 }`}
               >
@@ -131,7 +131,7 @@ export function FlowerTypesNav({ activeType: controlledActive, onActiveTypeChang
                   onClick={() => setActiveType(type.slug)}
                   className={`px-4 py-1.5 rounded-full whitespace-nowrap text-sm font-medium transition-all duration-200 border ${
                     activeType === type.slug
-                      ? 'bg-primary text-white border-primary shadow-sm'
+                      ? 'bg-primary text-primary-foreground border-primary shadow-sm'
                       : 'bg-transparent text-muted-foreground border-transparent hover:bg-secondary hover:text-foreground'
                   }`}
                 >
@@ -143,7 +143,7 @@ export function FlowerTypesNav({ activeType: controlledActive, onActiveTypeChang
             {/* Right Arrow */}
             <button 
               onClick={() => scroll('right')}
-              className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white shadow-sm rounded-full border border-border transition-all ${
+              className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-card shadow-sm rounded-full border border-border transition-all ${
                 showRightArrow ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'
               }`}
             >
@@ -151,8 +151,8 @@ export function FlowerTypesNav({ activeType: controlledActive, onActiveTypeChang
             </button>
 
             {/* Gradient Masks */}
-            <div className={`absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none transition-opacity ${showLeftArrow ? 'opacity-100' : 'opacity-0'}`} />
-            <div className={`absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white via-white/80 to-transparent pointer-events-none transition-opacity ${showRightArrow ? 'opacity-100' : 'opacity-0'}`} />
+            <div className={`absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-background via-background/80 to-transparent pointer-events-none transition-opacity ${showLeftArrow ? 'opacity-100' : 'opacity-0'}`} />
+            <div className={`absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-background via-background/80 to-transparent pointer-events-none transition-opacity ${showRightArrow ? 'opacity-100' : 'opacity-0'}`} />
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-black text-white">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 py-14 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Brand + tagline */}
@@ -19,7 +19,7 @@ export function Footer() {
                 href="https://www.instagram.com/technestmongolia"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 bg-white/10 rounded-full hover:bg-white hover:text-primary transition-colors"
+                className="p-2.5 bg-white/10 rounded-full hover:bg-white hover:text-black transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="size-5" />
@@ -28,7 +28,7 @@ export function Footer() {
                 href="https://www.facebook.com/SmartBuyInMongolia"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 bg-white/10 rounded-full hover:bg-white hover:text-primary transition-colors"
+                className="p-2.5 bg-white/10 rounded-full hover:bg-white hover:text-black transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="size-5" />
@@ -37,7 +37,7 @@ export function Footer() {
                 href="https://www.youtube.com/@kinotovchhon"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 bg-white/10 rounded-full hover:bg-white hover:text-primary transition-colors"
+                className="p-2.5 bg-white/10 rounded-full hover:bg-white hover:text-black transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="size-5" />
@@ -57,7 +57,7 @@ export function Footer() {
               </li>
               <li className="flex gap-3">
                 <Phone className="size-5 shrink-0 mt-0.5 text-accent" />
-                <a href="tel:76073333" className="hover:text-accent transition-colors">7607-3333</a>
+                <a href="tel:76073333" className="text-white/80 hover:text-accent transition-colors">7607-3333</a>
               </li>
             </ul>
             <div className="mt-6 p-4 bg-white/5 rounded-xl border border-white/10">

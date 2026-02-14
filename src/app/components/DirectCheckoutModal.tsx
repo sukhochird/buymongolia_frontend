@@ -143,11 +143,11 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-white z-[70] rounded-xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-card border border-border z-[70] rounded-xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
           >
-            <div className="p-5 border-b flex items-center justify-between bg-white sticky top-0 z-10">
+            <div className="p-5 border-b border-border flex items-center justify-between sticky top-0 z-10">
               <h2 className="text-xl font-bold font-serif">{title}</h2>
-              <button onClick={handleClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+              <button onClick={handleClose} className="p-2 hover:bg-secondary rounded-full transition-colors">
                 <X className="size-5" />
               </button>
             </div>
@@ -155,13 +155,13 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
             <div className="overflow-y-auto p-6">
               {step === 'form' ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border border-gray-100">
-                    <div className="size-20 bg-white rounded-md overflow-hidden shrink-0 border border-gray-200">
+                  <div className="flex gap-4 p-4 bg-muted/50 rounded-lg border border-border">
+                    <div className="size-20 bg-background rounded-md overflow-hidden shrink-0 border border-border">
                       <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-medium text-sm line-clamp-2 mb-1">{product.name}</h3>
-                      <div className="text-xs text-gray-500 mb-2">Тоо ширхэг: {product.quantity}</div>
+                      <div className="text-xs text-muted-foreground mb-2">Тоо ширхэг: {product.quantity}</div>
                       <div className="font-bold text-accent">{productTotal.toLocaleString()}₮</div>
                     </div>
                   </div>
@@ -175,7 +175,7 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
                         value={customerName}
                         onChange={(e) => setCustomerName(e.target.value)}
                         placeholder="Таны нэр"
-                        className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent"
+                        className="w-full px-4 py-2.5 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent text-foreground"
                       />
                     </div>
                     <div className="space-y-2">
@@ -190,7 +190,7 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
                         value={customerPhone}
                         onChange={(e) => setCustomerPhone(e.target.value.replace(/\D/g, ''))}
                         placeholder="88888888"
-                        className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent"
+                        className="w-full px-4 py-2.5 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent text-foreground"
                       />
                     </div>
                     <div className="space-y-2">
@@ -204,18 +204,18 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
                         value={customerEmail}
                         onChange={(e) => setCustomerEmail(e.target.value)}
                         placeholder="name@example.com"
-                        className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent"
+                        className="w-full px-4 py-2.5 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent text-foreground"
                       />
-                      <p className="text-xs text-gray-500">Төлбөр төлсний дараа лиценз/код энэ имэйл хаяг руу илгээгдэнэ.</p>
+                      <p className="text-xs text-muted-foreground">Төлбөр төлсний дараа лиценз/код энэ имэйл хаяг руу илгээгдэнэ.</p>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-gray-100 space-y-3">
-                    <div className="flex items-center justify-between text-sm text-gray-600">
+                  <div className="pt-4 border-t border-border space-y-3">
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
                       <span>Барааны үнэ:</span>
                       <span>{productTotal.toLocaleString()}₮</span>
                     </div>
-                    <div className="flex items-center justify-between text-sm text-gray-500">
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
                       <span>Хүргэлт:</span>
                       <span>Имэйлээр илгээнэ (нэмэлт төлбөргүй)</span>
                     </div>
@@ -225,8 +225,8 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
                         <span>-{discountAmount.toLocaleString()}₮</span>
                       </div>
                     )}
-                    <div className="flex items-center justify-between mb-2 pt-2 border-t border-dashed border-gray-200">
-                      <span className="font-bold text-gray-900">Нийт төлөх:</span>
+                    <div className="flex items-center justify-between mb-2 pt-2 border-t border-dashed border-border">
+                      <span className="font-bold text-foreground">Нийт төлөх:</span>
                       <span className="text-2xl font-bold text-accent">{grandTotal.toLocaleString()}₮</span>
                     </div>
                     {appliedPromo?.valid ? (
@@ -251,7 +251,7 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
                           value={promoInput}
                           onChange={(e) => setPromoInput(e.target.value)}
                           placeholder="Промо код оруулах"
-                          className="flex-1 px-3 py-2.5 rounded-lg border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent"
+                          className="flex-1 px-3 py-2.5 rounded-lg border border-border bg-input-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent"
                         />
                         <button
                           type="button"
@@ -276,7 +276,7 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
                               setPromoLoading(false);
                             }
                           }}
-                          className="px-4 py-2.5 rounded-lg border border-gray-200 text-sm font-medium hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                          className="px-4 py-2.5 rounded-lg border border-border text-sm font-medium hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                         >
                           {promoLoading ? '...' : 'Хэрэглэх'}
                         </button>
@@ -289,7 +289,7 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
                     >
                       {loading ? <Loader2 className="size-5 animate-spin" /> : <><CreditCard className="size-5" />Төлбөр төлөх (QPay)</>}
                     </button>
-                    <p className="text-xs text-center text-gray-500">Захиалах товчийг дарснаар QPay төлбөрийн цэс гарна.</p>
+                    <p className="text-xs text-center text-muted-foreground">Захиалах товчийг дарснаар QPay төлбөрийн цэс гарна.</p>
                   </div>
                 </form>
               ) : step === 'payment' && orderResult ? (
@@ -299,8 +299,8 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
                       {isPaid ? <CheckCircle2 className="size-6 text-green-600" /> : <XCircle className="size-6 text-amber-600" />}
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900">Захиалга #{orderResult.order_number}</h3>
-                      <p className="text-sm text-gray-500">Нийт {orderResult.total.toLocaleString()}₮</p>
+                      <h3 className="font-semibold text-foreground">Захиалга #{orderResult.order_number}</h3>
+                      <p className="text-sm text-muted-foreground">Нийт {orderResult.total.toLocaleString()}₮</p>
                     </div>
                     <span className={`px-3 py-1.5 rounded-full text-sm font-medium ${isPaid ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}`}>
                       {isPaid ? 'Төлөгдлөө' : 'Төлбөр төлөгдөнгүй'}
@@ -309,11 +309,11 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
                   {!isPaid && (
                     <>
                       <div className="mb-4">
-                        <p className="text-sm font-medium text-gray-700 mb-2 text-center">QR кодыг уншуулж төлнө үү</p>
+                        <p className="text-sm font-medium text-foreground mb-2 text-center">QR кодыг уншуулж төлнө үү</p>
                         <QPayQrDisplay qrImage={orderResult.qpay.qr_image} qrCode={orderResult.qpay.qr_code} size={200} />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-gray-700 mb-2">Банк / аппаа сонгоно уу:</p>
+                        <p className="text-sm font-medium text-foreground mb-2">Банк / аппаа сонгоно уу:</p>
                         <div className="grid grid-cols-2 gap-2 max-h-[200px] overflow-y-auto">
                           {orderResult.qpay.urls?.slice(0, 10).map((u, idx) => (
                             <a
@@ -321,21 +321,21 @@ export function DirectCheckoutModal({ isOpen, onClose, product }: DirectCheckout
                               href={u.link}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center gap-2 p-2 rounded-lg border border-gray-200 hover:border-accent hover:bg-accent/5 transition-colors"
+                              className="flex items-center gap-2 p-2 rounded-lg border border-border hover:border-accent hover:bg-accent/5 transition-colors"
                             >
-                              {u.logo ? <img src={u.logo} alt={u.name} className="size-8 object-contain" /> : <Smartphone className="size-8 text-gray-400" />}
+                              {u.logo ? <img src={u.logo} alt={u.name} className="size-8 object-contain" /> : <Smartphone className="size-8 text-muted-foreground" />}
                               <span className="text-xs font-medium truncate">{u.name}</span>
                             </a>
                           ))}
                         </div>
                       </div>
-                      <p className="text-xs text-gray-500 text-center">Төлбөр төлсний дараа «Төлөгдлөө» гэж автоматаар шинэчлэгдэнэ.</p>
+                      <p className="text-xs text-muted-foreground text-center">Төлбөр төлсний дараа «Төлөгдлөө» гэж автоматаар шинэчлэгдэнэ.</p>
                     </>
                   )}
                   {isPaid && (
                     <p className="text-sm text-green-700 bg-green-50 rounded-lg p-4">Таны төлбөр амжилттай төлөгдлөө. Захиалга баталгаажлаа.</p>
                   )}
-                  <button onClick={handleClose} className="w-full py-3 rounded-lg bg-gray-900 text-white font-medium hover:bg-gray-800 transition">
+                  <button onClick={handleClose} className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition">
                     Хаах
                   </button>
                 </div>
