@@ -213,16 +213,9 @@ export default function ProductDetailPage() {
                         </div>
                         <div>
                             <h4 className="font-medium mb-2">Хаяг</h4>
-                            <div className="space-y-3">
-                                <div>
-                                    <span className="text-sm font-semibold text-gray-900 block mb-1">Салбар 1:</span>
-                                    <p className="text-gray-600 text-sm">10-р хорооллын туслах зам дагуу Smart Buy Mongolia</p>
-                                </div>
-                                <div>
-                                    <span className="text-sm font-semibold text-gray-900 block mb-1">Салбар 2:</span>
-                                    <p className="text-gray-600 text-sm">🏢Grand Plaza Office, 1-р давхар Smart Buy Mongolia</p>
-                                </div>
-                            </div>
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                              Улаанбаатар хот, Сүхбаатар дүүрэг, 1-р хороо, Seoul Business Center, 6-р давхар, 605 тоот оффис, Ulaanbaatar, Mongolia, 14446
+                            </p>
                         </div>
                     </div>
 
@@ -242,10 +235,7 @@ export default function ProductDetailPage() {
                         </div>
                         <div>
                             <h4 className="font-medium mb-1">Холбоо барих</h4>
-                            <div className="flex flex-col gap-1">
-                                <a href="tel:90915955" className="text-gray-600 text-sm hover:text-accent transition-colors">9091-5955</a>
-                                <a href="tel:90915595" className="text-gray-600 text-sm hover:text-accent transition-colors">9091-5595</a>
-                            </div>
+                            <a href="tel:76073333" className="text-gray-600 text-sm hover:text-accent transition-colors">7607-3333</a>
                         </div>
                     </div>
                 </div>

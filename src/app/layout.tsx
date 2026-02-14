@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Outfit } from 'next/font/google';
+import { Great_Vibes } from 'next/font/google';
 import { ClientLayout } from '@/app/components/ClientLayout';
 import '@/app/globals.css';
 
-const fontLogo = Outfit({
+const fontLogo = Great_Vibes({
   subsets: ['latin'],
-  weight: ['600', '700'],
+  weight: '400',
   variable: '--font-logo',
   display: 'swap',
 });

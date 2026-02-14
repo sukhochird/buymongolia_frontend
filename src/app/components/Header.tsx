@@ -100,14 +100,16 @@ export function Header() {
           </div>
           <div className="hidden md:flex items-center gap-6">
             <a
-              href="#"
+              href="https://www.youtube.com/@kinotovchhon"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-1.5 opacity-80 hover:opacity-100 hover:text-accent transition-all"
             >
               <Youtube className="size-3.5" />
               YouTube
             </a>
             <a
-              href="https://www.instagram.com/eliteflower.mn/"
+              href="https://www.instagram.com/technestmongolia"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 opacity-80 hover:opacity-100 hover:text-accent transition-all"
@@ -116,7 +118,7 @@ export function Header() {
               Instagram
             </a>
             <a
-              href="https://www.facebook.com/EliteFlowerShop"
+              href="https://www.facebook.com/SmartBuyInMongolia"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 opacity-80 hover:opacity-100 hover:text-accent transition-all"

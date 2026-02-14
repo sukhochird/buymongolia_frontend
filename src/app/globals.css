@@ -5,9 +5,8 @@
 @source '../**/*.{js,ts,jsx,tsx}';
 @import 'tw-animate-css';
 
-/* Logo text — логонд зориулсан font */
+/* Logo text — логонд зориулсан font (Great Vibes) */
 .logo-text {
-  font-family: var(--font-logo), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: var(--font-logo), cursive;
+  font-weight: 400;
 }

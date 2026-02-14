@@ -16,7 +16,7 @@ export function Footer() {
             </p>
             <div className="flex gap-3 pt-1">
               <a
-                href="https://www.instagram.com/eliteflower.mn/"
+                href="https://www.instagram.com/technestmongolia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 bg-white/10 rounded-full hover:bg-white hover:text-primary transition-colors"
@@ -25,7 +25,7 @@ export function Footer() {
                 <Instagram className="size-5" />
               </a>
               <a
-                href="https://www.facebook.com/EliteFlowerShop"
+                href="https://www.facebook.com/SmartBuyInMongolia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 bg-white/10 rounded-full hover:bg-white hover:text-primary transition-colors"
@@ -34,7 +34,9 @@ export function Footer() {
                 <Facebook className="size-5" />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@kinotovchhon"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2.5 bg-white/10 rounded-full hover:bg-white hover:text-primary transition-colors"
                 aria-label="YouTube"
               >
@@ -49,25 +51,13 @@ export function Footer() {
             <ul className="space-y-5 text-sm text-white/80">
               <li className="flex gap-3">
                 <MapPin className="size-5 shrink-0 mt-0.5 text-accent" />
-                <div className="space-y-3">
-                  <p>
-                    <span className="font-medium text-white">Салбар 1:</span>
-                    <br />
-                    <span className="text-white/80">10-р хорооллын туслах зам дагуу Smart Buy Mongolia</span>
-                  </p>
-                  <p>
-                    <span className="font-medium text-white">Салбар 2:</span>
-                    <br />
-                    <span className="text-white/80">Grand Plaza Office, 1-р давхар Smart Buy Mongolia</span>
-                  </p>
-                </div>
+                <p className="text-white/80 leading-relaxed">
+                  Улаанбаатар хот, Сүхбаатар дүүрэг, 1-р хороо, Seoul Business Center, 6-р давхар, 605 тоот оффис, Ulaanbaatar, Mongolia, 14446
+                </p>
               </li>
               <li className="flex gap-3">
                 <Phone className="size-5 shrink-0 mt-0.5 text-accent" />
-                <div className="flex flex-col gap-1">
-                  <a href="tel:90915955" className="hover:text-accent transition-colors">9091-5955</a>
-                  <a href="tel:90915595" className="hover:text-accent transition-colors">9091-5595</a>
-                </div>
+                <a href="tel:76073333" className="hover:text-accent transition-colors">7607-3333</a>
               </li>
             </ul>
             <div className="mt-6 p-4 bg-white/5 rounded-xl border border-white/10">
